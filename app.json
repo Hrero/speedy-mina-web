@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/user/index",
+    "pages/letter/index",
+    "pages/user/editPersonInfo/editPersonInfo",
+    "pages/user/toEditUserInfo/toEditUserInfo",
+    "pages/user/userInfo/userInfo",
+    "pages/user/fansPage/fansPage",
+    "pages/user/formalRegular/formalRegular",
+    "pages/home/detail/detail",
+    "pages/home/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#EFAB17",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "aimg/icon/ic_zulinhuise.png",
+        "selectedIconPath": "aimg/icon/ic_zulintianchongse.png",
+        "text": "杂货铺"
+      },
+      {
+        "pagePath": "pages/letter/index",
+        "iconPath": "aimg/icon/ic_zulinhuise.png",
+        "selectedIconPath": "aimg/icon/ic_zulintianchongse.png",
+        "text": "聊一聊"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "aimg/icon/ic_wohuise.png",
+        "selectedIconPath": "aimg/icon/ic_woshise.png",
+        "text": "金掌柜"
+      }
+    ]
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

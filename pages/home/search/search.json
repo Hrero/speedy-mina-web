@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "租葛亮",
+    "usingComponents": {
+      "goodsList": "/component/goodslist/goodslist",
+      "waterFallView": "/component/waterFallView/waterFallView"
+    }
+}

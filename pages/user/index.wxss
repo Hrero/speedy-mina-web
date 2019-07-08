@@ -1,0 +1,229 @@
+.user-home{
+    background: #f6f7f9;
+}
+.user-home-head{
+    padding: 20rpx 30rpx 10rpx;
+    display: flex;
+    background: #ffffff;
+    font-size: 24rpx;
+    color: #cccccc;
+}
+.imgDiv{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user-home-head .imgDiv image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.user-home-head .left{
+    width:200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-home-head .right{
+    display: flex;
+    flex-direction: column;
+    padding-top:10rpx;
+    flex: 1;
+}
+.right .right-top{
+    display: flex;
+}
+.right .right-top .item{
+    text-align: center;
+    width: 50%;
+}
+.right-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 25rpx;
+}
+.zzz{
+    width: 300rpx;
+    text-align: center;
+    color: #000;
+    height:40rpx;
+    line-height:40rpx;
+    border:1rpx solid #cccccc;
+    border-radius: 20rpx;
+    font-size:24rpx;
+}
+.user-home-bottom{
+    background: #f6f7f9;
+    padding-top: 10rpx;
+}
+.home-bottom-tab{
+    height:80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    font-size: 32rpx;
+    padding: 10rpx 0;
+    color: #646464;
+}
+.home-bottom-tab view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 4rpx solid #ffffff;
+}
+.cbg{
+    margin-left:90rpx;
+}
+.home-bottom-tab .fans-tab {
+    border-bottom: 4rpx solid #EFAB17;
+    padding:10rpx 0rpx;
+    color: #000000;
+}
+.item .gz{
+    color: #222222;
+}
+.item view{
+    color: #646464;
+}
+.txtCenter{
+    text-align: center;
+    padding-top: 200rpx; 
+}
+.imgFabu{
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 20rpx;
+    text-align: center;
+    line-height: 33rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    color: #ccc;
+    border:1rpx solid #ccc;
+    border-radius: 50%;
+}
+.imgFabu image{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.zg-pageIndex .homeList {
+    background: #f6f7f9;
+    box-sizing: border-box;
+    position: relative;
+    /* margin-top: 300rpx; */
+    width: 100%;
+    overflow: hidden;
+    column-count:2;
+    column-gap:5rpx;
+    padding: 0 10rpx;
+  }
+.zg-pageIndex .homeList .item-li {
+    break-inside: avoid;
+    background: #ffffff;
+    /* width: calc(50% - 8rpx); */
+    margin: 0rpx 5rpx 10rpx 5rpx;
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    padding-bottom: 30rpx;
+    /* overflow: hidden; */
+}
+.des-item{
+    padding: 10rpx 20rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    font-weight:bold;
+    color: #2a2a2a;
+}
+.zg-pageIndex .homeList .item-li .list-img .listImg {
+    width: 100%;
+    border-top-left-radius: 8rpx;
+    border-top-right-radius: 8rpx;
+}
+.head{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    padding:0 20rpx;
+    margin-top:10rpx; 
+}
+.headImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    font-size: 24rpx;
+    margin: 0 5rpx;
+}
+.image{
+    width: 50rpx;
+    height:50rpx;
+    border-radius: 50%;
+}
+.image image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.zan{
+    width: 30rpx;
+    height:30rpx;
+    border-radius: 50%;
+    margin:0 10rpx 0 5rpx;
+}
+.zan-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:28rpx;
+}
+.headWrap{
+    background: #ffffff;
+    width: 100%;
+    height:100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.autoFocio{
+    width: 90%;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    height:65rpx;
+    line-height: 65rpx;
+    font-size:28rpx;
+    color: #a0a0a0;
+    margin: 0 auto;
+    background: #f5f5f5;
+    position: relative;
+}
+.autoInput{
+    padding-left: 70rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+}
+.small{
+    width: 35rpx;
+    height: 35rpx;
+    background: url(https://static2.zugeliang01.com/lease/img/30331b20-9252-11e9-a3ac-0f06167c54ec.png) no-repeat;
+    background-size: 35rpx 35rpx;
+    position: absolute;
+    top:15rpx;
+    left:25rpx;    
+}
+.wrapHead{
+    width: 100%;
+    /* position: fixed;
+    z-index: 100;
+    top:0;
+    left:0; */
+}

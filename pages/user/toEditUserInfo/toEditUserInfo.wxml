@@ -1,0 +1,8 @@
+<!-- <wxs src="../../utils/filter.wxs" module="filter" /> -->
+<view class="user-edit">
+    <view class="personTxt">2-24个字符，每个月只能修改一次</view>
+    <view class="section">
+        <input class="inputWrap" bindinput="changeInput" :type="{{type}}" placeholder="请输入..." value="{{value}}" auto-focus/>
+    </view>
+    <view class="handleChange" bindtap="toEditUserUpdate">确认修改</view>
+</view>

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "租葛亮",
+    "usingComponents": {
+      "goodsList": "/component/goodslist/goodslist"
+    }
+}

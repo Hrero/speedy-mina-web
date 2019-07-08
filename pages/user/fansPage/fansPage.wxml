@@ -1,0 +1,35 @@
+
+<view class="user-home">
+    <view wx:if="{{fansId == 1}}">
+        <view class="c-view" wx:for="{{attentionList}}" >
+            <view class="c-left" bindtap="toUserInfo" data-id="{{item._id}}">
+                <image class="zan"
+                        mode="scaleToFill"
+                        src="{{item.avatarUrl}}"></image>
+                <view class="c-name">
+                    <view>{{item.nickName}}</view>
+                    <view class="ccc">粉丝·{{item.fansNum}}</view>
+                </view>
+            </view>
+            <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
+                {{txt}}
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{fansId == 2}}">
+        <view class="c-view" wx:for="{{fanslist}}" >
+            <view class="c-left" bindtap="toUserInfo" data-id="{{item._id}}">
+                <image class="zan"
+                        mode="scaleToFill"
+                        src="{{item.avatarUrl}}"></image>
+                <view class="c-name">
+                    <view>{{item.nickName}}</view>
+                    <view class="ccc">粉丝·{{item.fansNum}}</view>
+                </view>
+            </view>
+            <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
+                {{txt}}
+            </view>
+        </view>
+    </view>
+</view>

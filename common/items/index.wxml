@@ -1,0 +1,14 @@
+<template name="items">
+    <view class="modal" wx:if="{{hidden}}">
+        <view class="modal-mask" animation="{{animMaskData}}" />
+        <view class="smodal-container" animation="{{animContentData}}">
+            <view class="smodal-content">
+                <view class="smodal-title">{{info.title}}</view>
+                <block wx:for="{{info.info}}">
+                    <view class="smodal-info">{{item}}</view>
+                </block>
+            </view>
+            <view class="smodal-close" bindtap="onModalCloseTap"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,36 @@
+<!-- <wxs src="../../utils/filter.wxs" module="filter" /> -->
+<view class="user-edit">
+    <view class="swiper-wrap">
+        <swiper class="swiper" style="height:{{height}};display: flex;">
+            <block wx:for="{{imgInfoList}}" style="height:{{height + 'px'}}">
+                <swiper-item class="swiper-item" style="display: flex;justify-items: center;align-items: center;">
+                    <image src="{{item.path}}" class="slide-image" mode="widthFix" style="height:{{height + 'px'}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view bindtap="setUserPhoto" class="section-btn">
+        上传照片
+    </view>
+    <view class="personZl">
+        <view class="line">
+            <view class="left">学校</view>
+            <picker class="right" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="name">
+                <view class="picker">
+                {{school}}
+                </view>
+            </picker>
+        </view>
+        <view class="line sign">
+            <view class="left">物品描述</view>
+            <textarea class="right" value="{{productDes}}" bindinput="bindTextAreaBlur" auto-height placeholder="物品描述" />
+        </view>
+    </view>
+    <view class="search-body" wx:if="{{commodityTypeList.length > 0}}">
+        <view class="search-item {{activeT === index? 'activeT': ''}}" wx:for="{{commodityTypeList}}" data-index="{{index}}" data-type="{{item.value}}" bindtap="handleType">
+            {{item.text}}
+        </view>
+    </view>
+    <view class="txt-oo">选择一个分类便于让更多校友看到</view>
+    <view class="handleChange" bindtap="toAddCommodity">确认发布</view>
+</view>

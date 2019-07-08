@@ -1,0 +1,69 @@
+<view class="zg-pageIndex">
+    <view class="head">
+        <view class="headImg">
+            <view class="image">
+                <image 
+                    mode="scaleToFill"
+                    src="{{detail.dep.avatarUrl}}"></image>
+            </view>
+            <view class="name">{{detail.dep.nickName}}</view>
+        </view>
+        <view class="zan-wrap" bindtap="getAddAttention">
+            关注
+        </view>
+    </view>
+    <view class="swiper-wrap" style="height:{{width/detail.imgMaxHeight.size + 'px'}}">
+        <swiper class="swiper" style="height:100%;display: flex;">
+            <block wx:for="{{detail.imageUrl}}" >
+                <swiper-item class="swiper-item" style="display: flex;justify-items: center;align-items: center;">
+                    <image src="{{item.path}}" class="slide-image" mode="widthFix" style="width:100%;height:{{width/detail.imgMaxHeight.size + 'px'}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="detail-text">{{detail.productDes}}</view>
+    <view class="detail-btn">
+        <view class="detail-btn-left">
+            <view class="detail-inner aa">
+                <image bindtap="toLikeclick"
+                    wx:if="{{detail.isLike}}"
+                    mode="scaleToFill"
+                    src="https://static2.zugeliang01.com/lease/img/9bc2ebe0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
+                <view class="txt">{{detail.like}}</view>
+            </view>
+            <view class="detail-inner">
+                <image
+                    mode="scaleToFill"
+                    src="https://static2.zugeliang01.com/lease/img/8933a3c0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
+                <view  class="txt">{{detail.transmit}}</view>
+            </view>
+        </view>
+        <view class="detail-btn-right">
+            <view class="detail-inner">
+                <image bindtap="toCollectionclick"
+                    wx:if="{{detail.isCollect}}"
+                    mode="scaleToFill"
+                    src="https://static2.zugeliang01.com/lease/img/a86ec990-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
+                <view  class="txt">{{number}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="leave-message">
+        <view class="message-wrap">
+            <view wx:for="{{message}}">
+                <text class="message-title">{{item.title}}</text>: <text class="message-info">{{item.msg}}</text>
+            </view>
+            <view class="message-biao">查看全部300条评论 ></view>
+        </view>
+        <view class="headWrap1">
+            <view class="autoFocio">
+                <input class="autoInput" placeholder="添加评论..." />
+                <view class="small"></view>
+            </view>
+        </view>
+        <view class="message-time">今天14:49</view>
+    </view>
+    <view class="tuijian">相关推荐</view>
+    <goodsList list="{{goodsRecommendList}}"></goodsList>
+    <view class="dixian">-------- 已经到底了 ---------</view>
+</view>

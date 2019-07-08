@@ -1,0 +1,11 @@
+
+var numToFixed = function (num) {
+    if (!num ) return
+    if (num.length < 9) {
+        return num
+    }
+    return num.substring(0,5) + "..."
+}
+module.exports = {
+    numToFixed: numToFixed
+}

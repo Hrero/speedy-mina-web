@@ -1,0 +1,149 @@
+@import "../../pages/_color";
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+}
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  opacity: 0;
+}
+.smodal-container {
+  z-index: 1000;
+  position: fixed;
+  left: 105rpx;
+  width: 540rpx;
+  top: 50%;
+  margin-top: -200rpx;
+  overflow: hidden;
+  min-height: 200rpx;
+  transform: translateY(50%);
+}
+.smodal-close {
+  width: 64rpx ;
+  height: 64rpx;
+  overflow: hidden;
+  margin: 40rpx auto;
+  background: @icon_close no-repeat;
+  background-size: 64rpx 64rpx;
+}
+.smodal-content {
+  border-radius: 30rpx;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 60rpx;
+  max-height: 400rpx;
+  overflow-y: auto;
+}
+.smodal-title {
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 1.5;
+  color: #333;
+  font-family: PingFangSC-Regular;
+}
+.smodal-info{
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  line-height: 1.5;
+  color: #666;
+}
+.grid-child {
+  padding-top: 40rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.grid-child-title {
+  height: 54rpx;
+  padding: 0 40rpx;
+}
+.grid-child-entitle {
+  height: 48rpx;
+  padding: 0 40rpx;
+}
+.c-title {
+  font-size: 48rpx;
+}
+.c-entitle {
+  font-size: 34rpx;
+  color: #888;
+  line-height: 1.5;
+}
+.clist {
+  margin-top: 50rpx;
+  padding: 0 40rpx 20rpx;
+  flex: 1;
+  overflow-y: scroll;
+}
+.clist-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 144rpx;
+  border-bottom: 1px solid #ddd;
+}
+.clist-item:active {
+  background-color: #eee;
+}
+.clist-item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.clist-item-content-title {
+  font-size: 34rpx;
+}
+.clist-item-content-subtitle {
+  font-size: 28rpx;
+  color: #888;
+  line-height: 2;
+}
+.c-list-item-extra {
+  width: 80rpx;
+}
+.c-list-item-arrow {
+  width: 32rpx;
+  height: 32rpx;
+}
+.chooseCard{
+  position:fixed;
+  height:350rpx;
+  width:490rpx;
+  border-radius:10px;
+  background:#fff;
+  top:50%;
+  left:50%;
+  margin-left:-245rpx;
+  margin-top:-100rpx;
+  font-size:34rpx;
+  z-index:9999;
+  .buttom{
+    height:100rpx;
+    text-align:center;
+    line-height:100rpx;
+    border-top:1px solid #e6e6e6;
+    color:#1F84FA;
+
+  }
+  .blackTile {
+    height:150rpx;
+    color: #030303;
+    line-height: 40 rpx;
+    text-align: center;
+    padding: 20 rpx 30 rpx;
+    text{
+      display:inline-block;
+    }
+  }
+}

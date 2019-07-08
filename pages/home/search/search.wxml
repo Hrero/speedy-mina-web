@@ -1,0 +1,81 @@
+<view class="zg-pageIndex skeleton">
+    <view class="headWrap">
+        <view class="autoFocio skeleton-rect">
+            <input class="autoInput" value="{{searchText}}" bindinput="changeSearch" placeholder="{{searchText}}" />
+            <view class="small"></view>
+            <view class="goback"  wx:if="{{isList}}">
+                <image class="gobackdelete" 
+                            catchtap="goBackSearch"
+                            mode="widthFix"
+                            src="https://static2.zugeliang01.com/lease/img/76ddf600-9d3b-11e9-a88d-77a7a2cf7dec.png"></image>
+            </view>
+        </view>
+        <view class="searchBtn" bindtap="handleSearch">
+            搜索
+        </view>
+    </view>
+    <!-- <view class="lai"></view> -->
+    <view class="searchBtn-down" wx:if="{{!isList}}">
+        <view class="search-head-hoot" wx:if="{{userHistorySearch.length > 0}}">
+            搜索历史
+        </view>
+        <view class="search-body" wx:if="{{userHistorySearch.length > 0}}">
+            <view class="search-item" wx:for="{{userHistorySearch}}" data-text="{{item.search}}" bindtap="handleSearch">
+                {{item.search}}
+            </view>
+             <image class="delete" bindtap="onDeleteThis"
+                            mode="widthFix"
+                            src="https://static2.zugeliang01.com/lease/img/77dfe030-9d3c-11e9-a88d-77a7a2cf7dec.png"></image>
+        </view>
+        <view class="search-head-hoot">
+            热门搜索
+        </view>
+        <view class="search-body">
+            <view class="search-item" wx:for="{{searchArrayList}}" data-text="{{item.text}}" bindtap="handleSearch">
+                <image wx:if="{{index == 0 || index == 1}}"  class="listicon"
+                            mode="widthFix"
+                            src="https://static2.zugeliang01.com/lease/img/53f2b660-9cc0-11e9-a88d-77a7a2cf7dec.png"></image>
+                {{item.text}}
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{isList}}">
+        <view class="user-home-bottom">
+            <view class="home-bottom-tab">
+                <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">商品</view>
+                <view class="cbg {{tabIndex === 2?'fans-tab':''}}" data-index="{{2}}" bindtap="choseFansType">用户</view>
+            </view>
+            <view class="topMargin">
+                <view hidden="{{tabIndex !== 1}}" >
+                    <view class="txtCenter" wx:if="{{goodList.length == 0}}">当前暂无商品</view>
+                    <scroll-view scroll-y style="height: 1005rpx;"  lower-threshold="50" bindscrolltolower="downList">
+                        <waterFallView id="waterFallView"></waterFallView>
+                    </scroll-view>
+                </view>
+                <view hidden="{{tabIndex !== 2}}" >
+                    <view class="txtCenter" wx:if="{{userSearchList.length == 0}}">当前无用户</view>
+                    <scroll-view scroll-y style="height: 1005rpx;"  lower-threshold="50" bindscrolltolower="downList">
+                        <view class="zg-pageIndex">
+                            <view >
+                                <view class="c-view" wx:for="{{userSearchList}}" >
+                                    <view class="c-left" bindtap="toUserInfo" data-id="{{item._id}}">
+                                        <image class="zan"
+                                                mode="scaleToFill"
+                                                src="{{item.avatarUrl}}"></image>
+                                        <view class="c-name">
+                                            <view>{{item.nickName}}</view>
+                                            <view class="ccc">粉丝·{{item.fansNum}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
+                                        {{txt}}
+                                    </view>
+                                </view>
+                            </view>
+                        </view>  
+                    </scroll-view>              
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

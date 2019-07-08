@@ -1,0 +1,209 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 25rpx;
+    background: #ffffff;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+.headImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    font-size: 24rpx;
+    margin: 0 5rpx;
+}
+.image{
+    width: 60rpx;
+    height:60rpx;
+    border-radius: 50%;
+    margin-right:10rpx;
+}
+.image image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+.zan{
+    width: 30rpx;
+    height:30rpx;
+    border-radius: 50%;
+    margin:0 5rpx;
+}
+.zan-wrap{
+    text-align: center;
+    width: 80rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border:1rpx solid red;
+    color: red;
+    font-size:22rpx;
+    border-radius: 20rpx;
+}
+.headWrap{
+    background: #ffffff;
+    width: 100%;
+    height:100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.autoFocio{
+    width: 90%;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    height:65rpx;
+    line-height: 65rpx;
+    font-size:28rpx;
+    color: #a0a0a0;
+    margin: 0 auto;
+    background: #f5f5f5;
+    position: relative;
+}
+.autoInput{
+    padding-left: 70rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+}
+.small{
+    width: 35rpx;
+    height: 35rpx;
+    background: url(https://static2.zugeliang01.com/lease/img/30331b20-9252-11e9-a3ac-0f06167c54ec.png) no-repeat;
+    background-size: 35rpx 35rpx;
+    position: absolute;
+    top:15rpx;
+    left:25rpx;    
+}
+.swiper-item, .swiper, .swiper-wrap, .slide-image{
+    background: #ffffff;
+    width: 100%;
+}
+.detail-text{
+    padding: 0 30rpx;
+    background: #ffffff;
+    font-size:28rpx;
+    line-height: 90rpx;
+}
+.detail-btn{
+    padding: 0 30rpx;
+    background: #ffffff;
+    font-size:28rpx;
+    display: flex;
+    line-height: 60rpx;
+    justify-content: space-between;
+}
+.detail-inner{
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+    position: relative;
+}
+.detail-btn-left{
+    display: flex;
+}
+.detail-btn-right{
+    display: flex;
+}
+.txt{
+    position: relative;
+    top:-18rpx;
+    right:-5rpx;
+}
+.aa{
+    margin-right: 20rpx;
+}
+.detail-btn image{
+    width: 40rpx;
+    height:40rpx;
+}
+.leave-message{
+    background: #ffffff;
+    padding: 30rpx;
+}
+.message-wrap{
+    border-radius: 10rpx;
+    background: #f5f5f5;
+    padding: 30rpx 30rpx 5rpx;
+    font-size: 28rpx;
+}
+.message-title{
+    font-weight: bold;
+    color: #030303;
+}
+.message-info{
+    font-size: 26rpx;
+    color: #212121;
+}
+.message-biao{
+    margin: 15rpx 0;
+    color: #6b8ad9;
+}
+.headWrap1{
+    background: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12rpx;
+}
+.autoFocio{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    height:65rpx;
+    line-height: 65rpx;
+    font-size:28rpx;
+    color: #a0a0a0;
+    background: #ffffff;
+    position: relative;
+}
+.autoInput{
+    padding-left: 52rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+}
+.small{
+    width: 35rpx;
+    height: 35rpx;
+    background: url(https://static2.zugeliang01.com/lease/img/30331b20-9252-11e9-a3ac-0f06167c54ec.png) no-repeat;
+    background-size: 35rpx 35rpx;
+    position: absolute;
+    border-radius: 50%;
+    top:15rpx;
+    left:0rpx;    
+}
+.message-time{
+    color: #a0a0a0;
+    font-size: 22rpx;
+}
+.zan1{
+    width: 30rpx;
+    height:30rpx;
+    border-radius: 50%;
+    margin:0 5rpx;
+}
+.zan-wrap1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:28rpx;
+}
+.tuijian{
+    font-size: 24rpx;
+    padding: 0 30rpx;
+    color: #636466;
+    line-height: 70rpx;
+}
+.dixian{
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40rpx auto;
+    text-align: center;
+}

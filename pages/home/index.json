@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "租葛亮",
+    "usingComponents": {
+      "skeleton": "/component/skeleton/skeleton",
+      "pointOut": "/component/point-out/point-out",
+      "goodsList": "/component/goodslist/goodslist",
+      "waterFallView": "/component/waterFallView/waterFallView"
+    },
+    "enablePullDownRefresh": true
+}

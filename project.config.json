@@ -1,0 +1,253 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wx5aaaec189466b376",
+	"projectname": "speedy-mina-web",
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 26,
+			"list": [
+				{
+					"id": -1,
+					"name": "调试分享",
+					"pathName": "pages/home/share/share",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 3,
+					"name": "合伙人",
+					"pathName": "pages/user/poster/poster",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "续租",
+					"pathName": "pages/user/reletOrder/reletOrder",
+					"query": "orderId=04215480517116930000",
+					"scene": "1001"
+				},
+				{
+					"id": 5,
+					"name": "合伙人首页",
+					"pathName": "pages/user/partnerInfo/partnerInfo",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "邀请码页面",
+					"pathName": "pages/user/become/become",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "我的合伙人",
+					"pathName": "pages/user/partner/partner",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "我的合伙人攻略",
+					"pathName": "pages/user/partnerRuler/partnerRuler",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 9,
+					"name": "我的合伙人数量详情",
+					"pathName": "pages/user/partnerFans/partnerFans",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "邀请canvas",
+					"pathName": "pages/user/partInvite/partInvite",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 12,
+					"name": "红包",
+					"pathName": "pages/user/partnerRed/partnerRed",
+					"query": "s=adadad",
+					"scene": 1001
+				},
+				{
+					"id": 13,
+					"name": "fex",
+					"pathName": "pages/home/index",
+					"query": "s=w0T4SSYP",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/home/phoneNumber/phoneNumber",
+					"query": "s=adadad",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "pages/user/deposit/deposit",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提现账户",
+					"pathName": "pages/user/banklist/banklist",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "增加账户",
+					"pathName": "pages/user/addBank/addBank",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "增加账户",
+					"pathName": "pages/user/partnerRuler/partnerRuler",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "实名认证",
+					"pathName": "pages/user/authentication/authentication",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "修改手机号",
+					"pathName": "pages/user/changePhone/changePhone",
+					"query": ""
+				},
+				{
+					"id": 22,
+					"name": "列表book",
+					"pathName": "pages/home/goods/goods",
+					"query": "catId=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑资料",
+					"pathName": "pages/user/editPersonInfo/editPersonInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "详情",
+					"pathName": "pages/home/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "++",
+					"pathName": "pages/user/toEditUserInfo/toEditUserInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "++1",
+					"pathName": "pages/user/formalRegular/formalRegular",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "++2",
+					"pathName": "pages/home/detail/detail",
+					"query": "commodityId=5d1759283af1a6226b78543e",
+					"scene": null
+				},
+				{
+					"id": 27,
+					"name": "详情",
+					"pathName": "pages/home/detail/detail",
+					"query": "commodityId=5d17639bb04a2029fb76ab66",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "粉丝列表",
+					"pathName": "pages/user/fansPage/fansPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "粉丝列表",
+					"pathName": "pages/user/userInfo/userInfo",
+					"query": "userId=5d18ac62e0c5a535fa2e3acf",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/home/search/search",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,87 @@
+.common-text {
+  background: #ffffff;
+  padding: 25rpx 0;
+  font-size: 28rpx;
+}
+.common-text .common-title {
+  line-height: 60rpx;
+  margin: 0 30rpx;
+}
+.common-text .box-full {
+  margin: 0 30rpx;
+  width: 668rpx;
+  margin-top: 10rpx;
+  border: 1rpx solid #DDDDDD;
+  padding: 5rpx 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.common-text .box-full .picker {
+  height: 58rpx;
+  width: 650rpx;
+  line-height: 58rpx;
+  padding-left: 5rpx;
+  background: url(https://static1.aidingmao.com/lease/img/60f98040-edf3-11e8-b570-8529d997c4e2.png) no-repeat right center;
+  background-size: 28rpx 28rpx;
+}
+.common-text .box-full .phoneText {
+  background: none;
+  height: 58rpx;
+  width: 666rpx;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+}
+.common-text .text-box-lr {
+  margin: 0 30rpx;
+  display: flex;
+  line-height: 58rpx ;
+}
+.common-text .text-box-lr .box-small {
+  width: 80rpx;
+}
+.common-text .text-box-lr .box-bigger {
+  width: 590rpx;
+  height: 48rpx;
+  overflow: hidden;
+  background: #F5F5F5;
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+}
+.common-text .text-box-lr .remarkText {
+  background: none;
+  height: 48rpx;
+  width: 100%;
+  font-size: 28rpx;
+  padding: 0;
+  margin: 0;
+}
+.common-text .text-box-lr .box-l {
+  flex: 1;
+  font-size: 28rpx;
+}
+.common-text .text-box-lr .box-l.font-min {
+  font-size: 24rpx;
+  color: #999999;
+}
+.common-text .text-box-lr .box-r {
+  flex: 1;
+  font-size: 28rpx;
+}
+.common-text .text-box-lr .box-r .money {
+  font-size: 20rpx;
+}
+.common-text .text-box-lr .box-r .has-mark {
+  padding-right: 35rpx;
+  background: url(https://static1.aidingmao.com/lease/img/a1607850-edf3-11e8-82ce-7f9d3bd1256f.png) no-repeat right center;
+  background-size: 30rpx 30rpx;
+}
+.common-text .text-box-lr .baozhang {
+  background: url(https://static1.aidingmao.com/lease/img/a1607850-edf3-11e8-82ce-7f9d3bd1256f.png) no-repeat 120rpx center;
+  background-size: 30rpx 30rpx;
+}
+.common-text .text-tips {
+  font-size: 20rpx;
+  color: #999999;
+  margin: 0 30rpx;
+}

@@ -1,0 +1,62 @@
+<!-- <wxs src="../../utils/filter.wxs" module="filter" /> -->
+<view class="user-edit">
+    <view class="personTxt">个人资料</view>
+    <view class="personZl">
+        <!-- <view class="line" >
+            <view class="left">
+                <image wx:if="{{!userInfo}}" src="{{userHead}}" mode="cover"></image>
+            </view>
+            <view class="right">修改头像</view>
+        </view> -->
+        <!-- <view class="line" bindtap="toEditUserInfo" data-index="{{1}}"  >
+            <view class="left">昵称</view>
+            <view class="right">{{nickName}}</view>
+            <image src="../../../aimg/icon/icon_you.png" class="rightJT" mode="cover"></image>
+        </view> -->
+        <view class="line">
+            <view class="left">性别</view>
+            <!-- <view class="right">男性</view> -->
+            <picker class="right" bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+                <view class="picker">
+                {{array[sex]}}
+                </view>
+            </picker>
+        </view>
+        <view class="line">
+            <view class="left">生日</view>
+            <picker class="right" mode="date" value="{{birthday}}" start="1980-09-01" end="2020-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                {{birthday}}
+                </view>
+            </picker>
+        </view>
+        <view class="line">
+            <view class="left">学校</view>
+            <picker class="right" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="name">
+                <view class="picker">
+                {{school}}
+                </view>
+            </picker>
+        </view>
+        <view class="line" data-index="{{3}}"  bindtap="toEditUserInfo">
+            <view class="left">学号</view>
+            <view class="right">{{studentNumber}}</view>
+            <image src="../../../aimg/icon/icon_you.png" class="rightJT" mode="cover"></image>
+        </view>
+        <view class="line" data-index="{{4}}"  bindtap="toEditUserInfo">
+            <view class="left">手机号</view>
+            <view class="right">{{phoneNumber}}</view>
+            <image src="../../../aimg/icon/icon_you.png" class="rightJT" mode="cover"></image>
+        </view>
+        <view class="line" data-index="{{5}}"  bindtap="toEditUserInfo">
+            <view class="left">真实姓名</view>
+            <view class="right">{{name}}</view>
+            <image src="../../../aimg/icon/icon_you.png" class="rightJT" mode="cover"></image>
+        </view>
+        <view class="line sign"  bindtap="toEditUserInfo" data-index="{{2}}">
+            <view class="left">个性签名</view>
+            <view class="right">{{signature}}</view>
+            <image src="../../../aimg/icon/icon_you.png" class="rightJT" mode="cover"></image>
+        </view>
+    </view>
+</view>

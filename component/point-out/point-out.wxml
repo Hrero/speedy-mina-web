@@ -1,0 +1,10 @@
+<!--<canvas canvas-id="skeleton" disable-scroll="true"></canvas>-->
+<view class="wrap">
+    <view class="neibu">
+        <image class="image" src="https://static2.zugeliang01.com/lease/img/9529c5c0-9c6a-11e9-a88d-77a7a2cf7dec.png" mode="cover"></image>
+        <view>
+            {{text}}
+        </view>
+    </view>
+    <image bindtap="onCloseBtn" class="image" src="https://static2.zugeliang01.com/lease/img/e29bfcc0-9c6e-11e9-a88d-77a7a2cf7dec.png" mode="cover"></image>
+</view>
