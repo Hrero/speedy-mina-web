@@ -1,3 +1,7 @@
+.zanwu{
+    width: 200rpx;
+    height: 200rpx;
+}
 .common-text {
   background: #ffffff;
   padding: 25rpx 0;

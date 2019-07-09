@@ -97,12 +97,13 @@
     width: 40rpx;
     height: 40rpx;
     margin-left: 20rpx;
-    text-align: center;
-    line-height: 33rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    font-size: 28rpx;
-    color: #ccc;
-    border:1rpx solid #ccc;
+    font-size: 24rpx;
+    color: #bfbfbf;
+    /* border:1rpx solid #ccc; */
     border-radius: 50%;
 }
 .imgFabu image{
@@ -114,7 +115,7 @@
     background: #f6f7f9;
     box-sizing: border-box;
     position: relative;
-    margin-top: 300rpx;
+    /* margin-top: 300rpx; */
     width: 100%;
     overflow: hidden;
     column-count:2;
@@ -221,8 +222,12 @@
 }
 .wrapHead{
     width: 100%;
-    position: fixed;
+    /* position: fixed;
     z-index: 100;
     top:0;
-    left:0;
+    left:0; */
+}
+.imagefa{
+    width: 50rpx;
+    height: 50rpx;
 }

@@ -57,7 +57,6 @@
 }
 .user-home-bottom{
     background: #f6f7f9;
-    padding-top: 10rpx;
 }
 .home-bottom-tab{
     height:80rpx;
@@ -98,12 +97,13 @@
     width: 40rpx;
     height: 40rpx;
     margin-left: 20rpx;
-    text-align: center;
-    line-height: 33rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    font-size: 28rpx;
-    color: #ccc;
-    border:1rpx solid #ccc;
+    font-size: 24rpx;
+    color: #bfbfbf;
+    /* border:1rpx solid #ccc; */
     border-radius: 50%;
 }
 .imgFabu image{
@@ -226,4 +226,8 @@
     z-index: 100;
     top:0;
     left:0; */
+}
+.imagefa{
+    width: 50rpx;
+    height: 50rpx;
 }

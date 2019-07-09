@@ -26,7 +26,6 @@ Page({
                 msg: '是的啊啊即使我是的啊'
             }
         ],
-        number: 0,
         width: app.windowWidth,
         goodsRecommendList: [],
         commodityId: '',
@@ -46,8 +45,7 @@ Page({
             const data = res.data;
             if (res.code) {
                 this.setData({
-                    detail: data,
-                    number: data.collect
+                    detail: data
                 }, () => {
                     app.httpsRequest('/api/recommendToCommodity', {
                         type: this.data.detail.type
@@ -68,18 +66,23 @@ Page({
             url: '/pages/home/detail/detail?commodityId=' + e.currentTarget.dataset.id
         });
     },
-    toLikeclick() {
+    toLikeclick(e) {
+        let status = e.currentTarget.dataset.isLike? 0: 1;
         app.httpsRequest('/api/user/addLike', {
-            commodityId: this.data.commodityId
+            commodityId: this.data.commodityId,
+            status: status
         }).then(res => {
-            let like = 'detail.like'
+            let like = 'detail.like';
+            let isLike = 'detail.isLike';
             if (res.code) {
                 this.setData({
-                    [like]: this.data.detail.like + 1
+                    [like]: this.data.detail.like + 1,
+                    [isLike]: status
                 })
             } else {
                 this.setData({
-                    [like]: this.data.detail.like - 1
+                    [like]: this.data.detail.like - 1,
+                    [isLike]: status
                 })
 
             }
@@ -90,17 +93,23 @@ Page({
             })
         })
     },
-    toCollectionclick() {
+    toCollectionclick(e) {
+        let status = e.currentTarget.dataset.iscollect? 0: 1;
         app.httpsRequest('/api/user/addCollection', {
-            commodityId: this.data.commodityId
+            commodityId: this.data.commodityId,
+            status: status
         }).then(res => {
+            let collect = 'detail.collect';
+            let isCollect = 'detail.isCollect';
             if (res.code) {
                 this.setData({
-                    number: this.data.number + 1
+                    [collect]: this.data.detail.collect + 1,
+                    [isCollect]: status
                 })
             } else {
                 this.setData({
-                    number: this.data.number - 1
+                    [collect]: this.data.detail.collect - 1,
+                    [isCollect]: status
                 })
             }
             wx.showToast({
@@ -111,21 +120,42 @@ Page({
         })
     },
     getAddAttention(e) {
+        let status = e.currentTarget.dataset.isfans? 0: 1;
         app.httpsRequest('/api/user/addAttention', {
-            attentionId: this.data.detail.dep._id
+            attentionId: this.data.detail.dep._id,
+            status: status
         }).then(res => {
+            let isFans = 'detail.dep.isFans';
             if (res.code) {
-                wx.showToast({
-                    title: res.msg,
-                    icon: 'none',
-                    duration: 1000
+                this.setData({
+                    [isFans]: status
                 })
-            }  
+            } else {
+                this.setData({
+                    [isFans]: status
+                })
+            }
+            wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 1000
+            })
+        })
+    },
+    toTransmitclick() {
+        app.httpsRequest('/api/user/addTransmit', {
+            commodityId: this.data.commodityId
+        }).then(res => {
+            wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 1000
+            })
         })
     },
     onShareAppMessage() {
         return {
-            title: '转发',
+            title: '杂货助手，大学生的二手物品的交换中心',
             path: '/pages/home/detail?commodityId=' + this.data.commodityId,
             success: (res) => {
                 app.httpsRequest('/api/user/addTransmit', {

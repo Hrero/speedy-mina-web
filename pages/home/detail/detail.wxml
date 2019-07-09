@@ -8,8 +8,8 @@
             </view>
             <view class="name">{{detail.dep.nickName}}</view>
         </view>
-        <view class="zan-wrap" bindtap="getAddAttention">
-            关注
+        <view  class="zan-wrap {{detail.dep.isFans === 0?'':'zan-wrap2'}}" data-isfans="{{detail.dep.isFans}}" bindtap="getAddAttention">
+            {{detail.dep.isFans? '已关注': '关注'}}
         </view>
     </view>
     <view class="swiper-wrap" style="height:{{width/detail.imgMaxHeight.size + 'px'}}">
@@ -25,26 +25,36 @@
     <view class="detail-btn">
         <view class="detail-btn-left">
             <view class="detail-inner aa">
-                <image bindtap="toLikeclick"
+                <image data-like="{{detail.isLike}}" bindtap="toLikeclick"
                     wx:if="{{detail.isLike}}"
                     mode="scaleToFill"
-                    src="https://static2.zugeliang01.com/lease/img/9bc2ebe0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
+                    src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                <image data-like="{{detail.isLike}}" bindtap="toLikeclick"
+                    wx:if="{{!detail.isLike}}"
+                    mode="scaleToFill"
+                    src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
                 <view class="txt">{{detail.like}}</view>
             </view>
-            <view class="detail-inner">
+            <!-- <view class="detail-inner" bindtap="toTransmitclick"> -->
+            <button class="detail-inner"  open-type='share'>  
                 <image
                     mode="scaleToFill"
                     src="https://static2.zugeliang01.com/lease/img/8933a3c0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
                 <view  class="txt">{{detail.transmit}}</view>
-            </view>
+            </button>
+            <!-- </view> -->
         </view>
         <view class="detail-btn-right">
             <view class="detail-inner">
-                <image bindtap="toCollectionclick"
+                <image data-iscollect="{{detail.isCollect}}" bindtap="toCollectionclick"
                     wx:if="{{detail.isCollect}}"
                     mode="scaleToFill"
-                    src="https://static2.zugeliang01.com/lease/img/a86ec990-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
-                <view  class="txt">{{number}}</view>
+                    src="https://static2.zugeliang01.com/lease/img/8ef878b0-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                <image data-iscollect="{{detail.isCollect}}" bindtap="toCollectionclick"
+                    wx:if="{{!detail.isCollect}}"
+                    mode="scaleToFill"
+                    src="https://static2.zugeliang01.com/lease/img/18ee0f10-a1e8-11e9-a88d-77a7a2cf7dec.png"></image>
+                <view  class="txt">{{detail.collect}}</view>
             </view>
         </view>
     </view>

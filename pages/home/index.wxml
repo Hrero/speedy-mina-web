@@ -3,7 +3,7 @@
     <pointOut wx:if="{{isPointOut}}" text="{{pointOutText}}" bind:onCloseBtn="onCloseBtn"></pointOut>
     <view class="headWrap">
         <view class="autoFocio skeleton-rect" bindtap="toSearchPage">
-            <input disabled="true" class="autoInput" placeholder="大家都在搜“{{searchText}}”" />
+            <input disabled="true" class="autoInput" value="大家都在搜“{{searchText}}”" placeholder="" />
             <view class="small"></view>
         </view>
     </view>
@@ -14,9 +14,9 @@
     <view class="header" wx:if="{{isShowTopLoad}}">
         <view class="spin"></view>
     </view>
-        <scroll-view scroll-y style="height: 950rpx;" bindscroll="bindscrollInfo" lower-threshold="50" bindscrolltolower="downList">
-            <waterFallView id="waterFallView"></waterFallView>
-        </scroll-view>
+    <scroll-view scroll-y style="height: 950rpx;" bindscroll="bindscrollInfo" lower-threshold="50" bindscrolltolower="downList">
+        <waterFallView id="waterFallView"></waterFallView>
+    </scroll-view>
     <view class="load-wrap">
         <view class="spin" wx:if="{{loading}}"></view>
     </view>

@@ -1,4 +1,5 @@
 <view class="user-home">
+    <pointOut wx:if="{{isPointOut}}" text="{{pointOutText}}" bind:onCloseBtn="onCloseBtn"></pointOut>
     <view class="wrapHead">
         <view class="user-home-head">
                 <view class="left">
@@ -9,14 +10,14 @@
                 <view class="right">
                     <view class="right-top">
                         <view class="item">
-                            <view class="gz" bindtap="tofansPage">
+                            <view class="gz" bindtap="tofansPage" data-id="1">
                             关注
                             </view>
                             <view>
                             {{userInfo.attentionNum}}
                             </view>
                         </view>
-                        <view class="item">
+                        <view class="item" bindtap="tofansPage" data-id="2">
                             <view class="gz">
                             粉丝
                             </view>
@@ -26,7 +27,7 @@
                         </view>
                         <view class="item">
                             <view class="gz">
-                            橱窗
+                            他的商品
                             </view>
                             <view>
                             {{goodList.length}}
@@ -34,82 +35,29 @@
                         </view>
                     </view>
                     <view class="right-down">
-                        <view class="zzz" bindtap="getFans">{{txt}}</view>
+                        <button class="zzz" wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">编辑资料</button>
+                        <view class="zzz" wx:if="{{userInfo.avatarUrl}}" data-isfans="{{userInfo.isFans}}" data-id="{{userInfo._id}}" bindtap="getFans">{{userInfo.isFans? '已关注': '关注'}}</view>
                     </view>
                 </view>
         </view>
         <view class="home-bottom-tab">
-            <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">橱窗</view>
+            <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">商品</view>
             <view class="cbg {{tabIndex === 2?'fans-tab':''}}" data-index="{{2}}" bindtap="choseFansType">收藏</view>
         </view>
     </view>
     <view class="user-home-bottom">
         <view>
-            <view wx:if="{{tabIndex === 1}}" >
+            <view wx:if="{{tabIndex === 1}}">
                 <view class="txtCenter" wx:if="{{goodList.length == 0}}">当前暂无商品</view>
-                <view class="zg-pageIndex">
-                    <view class="homeList">
-                        <view class="item-li" bindtap="toDetailPage" wx:for="{{goodList}}" data-id="{{item._id}}">
-                            <view class="list-img img-box">
-                                <image  class="listImg"
-                                        mode="widthFix"
-                                        src="{{item.imageUrl[0]}}"></image>
-                            </view>
-                            <view class="des-item">
-                                {{item.productDes}}
-                            </view>
-                            <view class="head">
-                                <view class="headImg">
-                                    <view class="image">
-                                        <image 
-                                            mode="scaleToFill"
-                                            src="{{item.dep.avatarUrl}}"></image>
-                                    </view>
-                                    <view class="name">{{item.dep.nickName}}</view>
-                                </view>
-                                <view class="zan-wrap">
-                                    <image class="zan"
-                                            mode="scaleToFill"
-                                            src="https://static2.zugeliang01.com/lease/img/9bc2ebe0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
-                                    <view>{{item.like}}</view>       
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
+                 <scroll-view scroll-y wx:if="{{goodList.length !== 0}}" style="height: 900rpx;" bindscroll="bindscrollInfo" lower-threshold="150" >
+                    <waterFallView id="userWaterView"></waterFallView>
+                </scroll-view>
             </view>
-            <view wx:if="{{tabIndex === 2}}" >
+            <view wx:if="{{tabIndex === 2}}">
                 <view class="txtCenter" wx:if="{{collectionList.length == 0}}">当前暂无收藏</view>
-                <view class="zg-pageIndex">
-                    <view class="homeList">
-                        <view class="item-li" bindtap="toDetailPage" wx:for="{{collectionList}}" data-id="{{item.dep._id}}">
-                            <view class="list-img img-box">
-                                <image  class="listImg"
-                                        mode="widthFix"
-                                        src="{{item.dep.imageUrl[0]}}"></image>
-                            </view>
-                            <view class="des-item">
-                                {{item.dep.productDes}}
-                            </view>
-                            <view class="head">
-                                <view class="headImg">
-                                    <view class="image">
-                                        <image 
-                                            mode="scaleToFill"
-                                            src="{{item.dep.dep.avatarUrl}}"></image>
-                                    </view>
-                                    <view class="name">{{item.dep.dep.nickName}}</view>
-                                </view>
-                                <view class="zan-wrap">
-                                    <image class="zan"
-                                            mode="scaleToFill"
-                                            src="https://static2.zugeliang01.com/lease/img/9bc2ebe0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
-                                    <view>{{item.dep.like}}</view>       
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>                
+                <scroll-view scroll-y wx:if="{{collectionList.length !== 0}}" style="height: 900rpx;" bindscroll="bindscrollInfo" lower-threshold="150" >
+                    <waterFallView id="collectWaterView"></waterFallView>
+                </scroll-view>
             </view>
         </view>
     </view>

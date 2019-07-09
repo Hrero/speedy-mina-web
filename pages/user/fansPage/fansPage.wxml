@@ -11,8 +11,8 @@
                     <view class="ccc">粉丝·{{item.fansNum}}</view>
                 </view>
             </view>
-            <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
-                {{txt}}
+            <view class="c-guanzhu" data-isfans="{{item.isFans}}" data-index="{{index}}"  data-type="attention"  bindtap="getFans" data-id="{{item._id}}">
+                {{item.isFans? '已关注': '关注'}}
             </view>
         </view>
     </view>
@@ -27,8 +27,8 @@
                     <view class="ccc">粉丝·{{item.fansNum}}</view>
                 </view>
             </view>
-            <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
-                {{txt}}
+            <view class="c-guanzhu" data-isfans="{{item.isFans}}" data-index="{{index}}" data-type="fans"  bindtap="getFans" data-id="{{item._id}}">
+                {{item.isFans? '已关注': '关注'}}
             </view>
         </view>
     </view>

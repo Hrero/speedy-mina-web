@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 26,
+			"current": 33,
 			"list": [
 				{
 					"id": -1,
@@ -245,6 +245,27 @@
 					"name": "搜索",
 					"pathName": "pages/home/search/search",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 31,
+					"name": "1111",
+					"pathName": "pages/home/detail/detail",
+					"query": "commodityId=5d21bcdaca0153f63a89a122",
+					"scene": null
+				},
+				{
+					"id": 32,
+					"name": "关注",
+					"pathName": "pages/user/fansPage/fansPage",
+					"query": "fansId=1",
+					"scene": null
+				},
+				{
+					"id": 33,
+					"name": "用户个人",
+					"pathName": "pages/user/userInfo/userInfo",
+					"query": "userId=5d145ee6c50c3201d17dc28a",
 					"scene": null
 				}
 			]

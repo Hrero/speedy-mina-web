@@ -17,9 +17,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
     z-index: 10;
 }
 .autoFocio{
@@ -29,7 +26,6 @@
     height:65rpx;
     line-height: 65rpx;
     font-size:28rpx;
-    color: #a0a0a0;
     margin: 0 auto;
     background: #f5f5f5;
     position: relative;
@@ -38,12 +34,13 @@
     padding-left: 70rpx;
     height: 65rpx;
     line-height: 65rpx;
+    color: #999999;
 }
 .small{
-    width: 35rpx;
-    height: 35rpx;
+    width: 40rpx;
+    height: 40rpx;
     background: url(https://static2.zugeliang01.com/lease/img/6acced40-9c81-11e9-a88d-77a7a2cf7dec.png) no-repeat;
-    background-size: 35rpx 35rpx;
+    background-size:40rpx 40rpx;
     position: absolute;
     top:15rpx;
     left:25rpx;    
@@ -62,7 +59,7 @@
     line-height: 60rpx;
     font-size: 24rpx;
     text-align: center;
-    color: #cccccc;
+    color: #8a8a8a;
 }
 .activeC{
     color: #222222;

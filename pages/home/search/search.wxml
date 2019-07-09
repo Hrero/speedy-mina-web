@@ -10,7 +10,7 @@
                             src="https://static2.zugeliang01.com/lease/img/76ddf600-9d3b-11e9-a88d-77a7a2cf7dec.png"></image>
             </view>
         </view>
-        <view class="searchBtn" bindtap="handleSearch">
+        <view class="searchBtn {{activeSeach? '': 'activeccc'}}" bindtap="handleSearch">
             搜索
         </view>
     </view>
@@ -47,13 +47,17 @@
             </view>
             <view class="topMargin">
                 <view hidden="{{tabIndex !== 1}}" >
-                    <view class="txtCenter" wx:if="{{goodList.length == 0}}">当前暂无商品</view>
+                    <view class="txtCenter" wx:if="{{goodList.length == 0}}">
+                        <image class="zanwu" src="https://static2.zugeliang01.com/lease/img/7d8ac4c0-a23a-11e9-a88d-77a7a2cf7dec.png"></image>
+                    </view>
                     <scroll-view scroll-y style="height: 1005rpx;"  lower-threshold="50" bindscrolltolower="downList">
                         <waterFallView id="waterFallView"></waterFallView>
                     </scroll-view>
                 </view>
                 <view hidden="{{tabIndex !== 2}}" >
-                    <view class="txtCenter" wx:if="{{userSearchList.length == 0}}">当前无用户</view>
+                    <view class="txtCenter" wx:if="{{userSearchList.length == 0}}">
+                        <image class="zanwu" src="https://static2.zugeliang01.com/lease/img/7d8ac4c0-a23a-11e9-a88d-77a7a2cf7dec.png"></image>
+                    </view>
                     <scroll-view scroll-y style="height: 1005rpx;"  lower-threshold="50" bindscrolltolower="downList">
                         <view class="zg-pageIndex">
                             <view >
@@ -67,8 +71,8 @@
                                             <view class="ccc">粉丝·{{item.fansNum}}</view>
                                         </view>
                                     </view>
-                                    <view class="c-guanzhu" bindtap="getFans" data-id="{{item._id}}">
-                                        {{txt}}
+                                    <view class="c-guanzhu"  data-isfans="{{item.isFans}}" bindtap="getFans" data-index="{{index}}" data-id="{{item._id}}">
+                                        <text>{{item.isFans?'已关注':'关注'}}</text>
                                     </view>
                                 </view>
                             </view>

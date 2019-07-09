@@ -9,7 +9,7 @@
     height:80rpx;
     line-height: 80rpx;
     text-align: center;
-    background: red;
+    background: #d81e06;
     position: fixed;
     bottom:0;
     left:0;
@@ -95,7 +95,7 @@
     align-items: center;
 }
 .activeT{
-    background: red;
+    background: #d81e06;
     color: #ffffff;
 }
 .delete{

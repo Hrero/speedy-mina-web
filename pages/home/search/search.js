@@ -9,8 +9,9 @@ Page({
         tabIndex: 1,
         goodList: [],
         pageSize: 5,
+        activeSeach: true,
         pageNum: 1,
-        txt: '未关注',
+        txt: '',
         userSearchList: [],
         searchArrayList: []
     },
@@ -57,11 +58,22 @@ Page({
         })
     },
     changeSearch(e) {
-        this.setData({
-            searchText: e.detail.value
-        })
+        if (e.detail.value) {
+            this.setData({
+                activeSeach: true,
+                searchText: e.detail.value
+            })
+        } else {
+            this.setData({
+                activeSeach: false,
+                searchText: e.detail.value
+            })
+        }
     },
     handleSearch(e) {
+        if (!this.data.searchText) {
+            return
+        }
         if (e.currentTarget.dataset.text) {
             this.setData({
                 searchText: e.currentTarget.dataset.text
@@ -110,15 +122,21 @@ Page({
         })
     },
     getFans(e) {
+        let isFans = 'userSearchList['+ e.currentTarget.dataset.index +'].isFans';
+        let status = e.currentTarget.dataset.isfans? 0: 1;
+        console.log(isFans)
         app.httpsRequest('/api/user/addAttention', {
-            attentionId: e.currentTarget.dataset.id
+            attentionId: e.currentTarget.dataset.id,
+            status: status
         }).then(res => {
             if (res.code) {
                 this.setData({
+                    [isFans]: status,
                     txt: '已关注'
                 })
             } else {
                 this.setData({
+                    [isFans]: status,
                     txt: '关注'
                 })
             }

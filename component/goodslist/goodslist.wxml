@@ -19,10 +19,17 @@
                 </view>
                 <view class="name">{{item.dep.nickName}}</view>
             </view>
-            <view class="zan-wrap skeleton-rect">
-                <image class="zan"
+            <view class="zan-wrap skeleton-radius"  data-id="{{item._id}}" catchtap="toLikeclick">
+                <image class="zan" 
+                        wx:if="{{item.isLike}}"
                         mode="scaleToFill"
-                        src="https://static2.zugeliang01.com/lease/img/9bc2ebe0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
+                        lazy-load
+                        src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                <image class="zan" 
+                        wx:if="{{!item.isLike}}"
+                        mode="scaleToFill"
+                        lazy-load
+                        src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
                 <view>{{item.like}}</view>       
             </view>
         </view>

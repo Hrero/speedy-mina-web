@@ -1,67 +1,50 @@
 const app = getApp();
 import utils from '../../../utils/utils';
+
 Page({
     data: {
         userInfo: {},
         userToken: null,
+        isPointOut: true,
+        pointOutText: "温馨提示：请点击编辑信息授权获取您的个人信息",
         tabIndex: 1,
+        txt: '',
         goodList: [],
-        txt: '已关注',
         collectionList: [],
         userId: '',
         userHead: '' || 'https://static2.zugeliang01.com/lease/img/de7c2f80-90e2-11e9-a258-4ba5c91f867b.png'
     },
-    onLoad(query) {
-        if (query.userId) {
-            this.setData({
-                userId: query.userId
-            })
-        }
-        app.httpsRequest('/api/user/getUserCommodityList', {
-            userId: this.data.userId
-        }).then(res => {
-            const data = res.data;
-            this.setData({
-                goodList: utils.isObjNull(data)?[]: data
-            });
-        })
-        app.httpsRequest('/api/user/getCollectionList', {
-            userId: this.data.userId
-        }).then(res => {
-            const data = res.data;
-            this.setData({
-                collectionList: utils.isObjNull(data)?[]: data
-            });
-        })
-    },
-    onShow(){
-        app.httpsRequest('/api/user/getUserDetail', {
-            userId: this.data.userId
-        }).then( res => {
+    onLoad() {
+        app.httpsRequest('/api/user/getUserDetail', {}, true).then( res => {
             if (res.code) {
                 this.setData({
-                    userInfo: res.data
+                    userInfo: res.data,
+                    isPointOut: res.data.school? false: true
                 })
             }
         });
+        this.getUserCommodityList()
+        this.getCollectList()
     },
-    getFans() {
-        app.httpsRequest('/api/user/addAttention', {
-            attentionId: this.data.userId
-        }).then(res => {
-            if (res.code) {
-                wx.showToast({
-                    title: res.msg,
-                    icon: 'none',
-                    duration: 1000
-                })
-                this.setData({
-                    txt: '已关注'
-                })
-            } else {
-                this.setData({
-                    txt: '未关注'
-                })
+    getUserCommodityList() {
+        app.httpsRequest('/api/user/getUserCommodityList', {}).then(res => {
+            let data = utils.isObjNull(res.data)?[]: res.data;
+            this.setData({
+                goodList: data
+            });
+            if (data.length > 0) {
+                this.fillData(true, data, 'userWaterView')
+            }
+        })
+    },
+    getCollectList() {
+        app.httpsRequest('/api/user/getCollectionList', {}).then(res => {
+            const data = utils.isObjNull(res.data)?[]: res.data;
+            this.setData({
+                collectionList: data
+            });
+            if (data.length > 0) {
+                this.fillData(true, data, 'collectWaterView')
             }
         })
     },
@@ -69,6 +52,20 @@ Page({
         this.setData({
             tabIndex: e.target.dataset.index
         });
+        if (e.target.dataset.index === 1) {
+            this.getUserCommodityList()
+        } else {
+            this.getCollectList()
+        }
+    },
+    onCloseBtn() {
+        this.setData({
+            isPointOut: false
+        })
+    },
+    fillData(isFull, goods, id) {
+        let view = this.selectComponent('#' + id);
+        view.fillData(isFull, goods);
     },
     onGotUserInfo(e) {
         if(!e.detail.encryptedData) return;
@@ -76,10 +73,13 @@ Page({
             userInfo: e.detail.userInfo
         });
         app.speedyForWechatUid(e.detail).then(() => {
-            if(app.userToken) {
-                // this.getUserDetail();
-                // this.ifBecamePartner();
-            }
+            app.httpsRequest('/api/user/getUserDetail', {}, true).then( res => {
+                if (res.code) {
+                    this.setData({
+                        userInfo: res.data
+                    })
+                }
+            });
         }); 
     },
     onGotUserInfo(e) {
@@ -92,9 +92,34 @@ Page({
             }
         });
     },
+    getFans(e) {
+        let isFans = isFans = 'userInfo.isFans';
+        let status = e.currentTarget.dataset.isfans? 0: 1;
+        app.httpsRequest('/api/user/addAttention', {
+            attentionId: e.currentTarget.dataset.id,
+            status: status
+        }).then(res => {
+            if (res.code) {
+                this.setData({
+                    [isFans]: status,
+                    txt: '已关注'
+                })
+            } else {
+                this.setData({
+                    [isFans]: status,
+                    txt: '关注'
+                })
+            }
+            wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 1000
+            })
+        })
+    },
     tofansPage(e) {
         wx.navigateTo({
-            url: './fansPage/fansPage'
+            url: './fansPage/fansPage?fansId=' + e.currentTarget.dataset.id
         });
     },
     toDetailPage(e) {

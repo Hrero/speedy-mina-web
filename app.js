@@ -26,8 +26,8 @@ App({
     // httpUrl: 'https://jd.zugeliang01.com', //线上请求地址
     // httpUrl: '192.168.0.113:8000', //请求地址
     // httpUrl: 'http://127.0.0.1:8000', //请求地址
-    // httpUrl: 'http://192.168.1.70:8000', //请求地址
-    httpUrl: 'http://192.168.0.106:8000', //请求地址
+    httpUrl: 'http://192.168.1.70:8000', //请求地址
+    // httpUrl: 'http://192.168.0.106:8000', //请求地址
     sourceName: 'weChat_app_speedy',
     userToken: null,
     userInfo: null,

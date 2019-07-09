@@ -22,15 +22,25 @@ Page({
         });
     },
     getFans(e) {
+        let isFans = ''
+        if (e.currentTarget.dataset.type === 'attention') {
+            isFans = 'attentionList['+ e.currentTarget.dataset.index +'].isFans';
+        } else {
+            isFans = 'fanslist['+ e.currentTarget.dataset.index +'].isFans';
+        }
+        let status = e.currentTarget.dataset.isfans? 0: 1;
         app.httpsRequest('/api/user/addAttention', {
-            attentionId: e.currentTarget.dataset.id
+            attentionId: e.currentTarget.dataset.id,
+            status: status
         }).then(res => {
             if (res.code) {
                 this.setData({
+                    [isFans]: status,
                     txt: '已关注'
                 })
             } else {
                 this.setData({
+                    [isFans]: status,
                     txt: '关注'
                 })
             }

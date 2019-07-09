@@ -14,18 +14,6 @@ Page({
         userHead: '' || 'https://static2.zugeliang01.com/lease/img/de7c2f80-90e2-11e9-a258-4ba5c91f867b.png'
     },
     onLoad() {
-        app.httpsRequest('/api/user/getUserCommodityList', {}).then(res => {
-            const data = res.data;
-            this.setData({
-                goodList: utils.isObjNull(data)?[]: data
-            });
-        })
-        app.httpsRequest('/api/user/getCollectionList', {}).then(res => {
-            const data = res.data;
-            this.setData({
-                collectionList: utils.isObjNull(data)?[]: data
-            });
-        })
         app.httpsRequest('/api/user/getUserDetail', {}, true).then( res => {
             if (res.code) {
                 this.setData({
@@ -34,16 +22,49 @@ Page({
                 })
             }
         });
+        this.getUserCommodityList()
+        this.getCollectList()
+    },
+    getUserCommodityList() {
+        app.httpsRequest('/api/user/getUserCommodityList', {}).then(res => {
+            let data = utils.isObjNull(res.data)?[]: res.data;
+            this.setData({
+                goodList: data
+            });
+            if (data.length > 0) {
+                this.fillData(true, data, 'userWaterView')
+            }
+        })
+    },
+    getCollectList() {
+        app.httpsRequest('/api/user/getCollectionList', {}).then(res => {
+            const data = utils.isObjNull(res.data)?[]: res.data;
+            this.setData({
+                collectionList: data
+            });
+            if (data.length > 0) {
+                this.fillData(true, data, 'collectWaterView')
+            }
+        })
     },
     choseFansType(e){
         this.setData({
             tabIndex: e.target.dataset.index
         });
+        if (e.target.dataset.index === 1) {
+            this.getUserCommodityList()
+        } else {
+            this.getCollectList()
+        }
     },
     onCloseBtn() {
         this.setData({
             isPointOut: false
         })
+    },
+    fillData(isFull, goods, id) {
+        let view = this.selectComponent('#' + id);
+        view.fillData(isFull, goods);
     },
     onGotUserInfo(e) {
         if(!e.detail.encryptedData) return;

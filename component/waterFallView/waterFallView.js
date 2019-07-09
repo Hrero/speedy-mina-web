@@ -1,3 +1,4 @@
+const app = getApp();
 var leftList = new Array();//左侧集合
 var rightList = new Array();//右侧集合
 var leftHight = 0, rightHight = 0, itemWidth = 0, maxHeight = 0;
@@ -5,6 +6,7 @@ var leftHight = 0, rightHight = 0, itemWidth = 0, maxHeight = 0;
 Component({
   properties: {},
   data: {
+    listData: [],
     leftList: [],//左侧集合
     rightList: [],//右侧集合
   },
@@ -51,7 +53,70 @@ Component({
       this.setData({
         leftList: leftList,
         rightList: rightList,
+        listData: listData
       });
+    },
+    toLikeclick(e) {
+        let item = {};
+        let list = '';
+        let idx = '';
+        let status = 0;
+        let id = e.currentTarget.dataset.id;
+        this.data.leftList.forEach((element, index) => {
+            if (element._id === id) {
+                item = element
+                status = element.isLike? 0: 1;
+                list = 'left';
+                idx = index;
+            }
+        });
+        this.data.rightList.forEach((element, index) => {
+            if (element._id === id) {
+                item = element
+                status = element.isLike? 0: 1;
+                list = 'right';
+                idx = index;
+            }
+        });
+        app.httpsRequest('/api/user/addLike', {
+            commodityId: item._id,
+            status: status
+        }).then(res => {
+            if (list === 'right') {
+                let like = 'rightList['+ idx + '].like';
+                let isLike = 'rightList[' + idx + '].isLike';
+                if (res.code) {
+                    this.setData({
+                        [like]: this.data.rightList[idx].like + 1,
+                        [isLike]: status
+                    })
+                } else {
+                    this.setData({
+                        [like]: this.data.rightList[idx].like - 1,
+                        [isLike]: status
+                    })
+                }
+            } else {
+                let like = 'leftList['+ idx + '].like';
+                let isLike = 'leftList[' + idx + '].isLike';
+                if (res.code) {
+                    this.setData({
+                        [like]: this.data.leftList[idx].like + 1,
+                        [isLike]: this.data.leftList[idx].isLike = status
+                    })
+                } else {
+                    this.setData({
+                        [like]: this.data.leftList[idx].like - 1,
+                        [isLike]: this.data.leftList[idx].isLike = status
+                    })
+                }
+            }
+            wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 1000
+            })
+        })
     },
     toDetailPage(e) {
         wx.navigateTo({
