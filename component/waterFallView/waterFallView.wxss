@@ -83,3 +83,33 @@
     align-items: center;
     font-size:28rpx;
 }
+.load-wrap{
+    /* height: 120rpx; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spin {
+    display: inline-block;
+    width: 64rpx;
+    height: 64rpx;
+}
+.spin:after {
+    content: " ";
+    display: block;
+    width: 46rpx;
+    height: 46rpx;
+    margin: 1rpx;
+    border-radius: 50%;
+    border: 5rpx solid #2a2a2a;
+    border-color: #2a2a2a transparent #2a2a2a transparent;
+    animation: spin 1.2s linear infinite;
+}
+@keyframes spin {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}

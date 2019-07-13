@@ -35,14 +35,12 @@
                     src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
                 <view class="txt">{{detail.like}}</view>
             </view>
-            <!-- <view class="detail-inner" bindtap="toTransmitclick"> -->
             <button class="detail-inner"  open-type='share'>  
                 <image
                     mode="scaleToFill"
                     src="https://static2.zugeliang01.com/lease/img/8933a3c0-9bcb-11e9-a88d-77a7a2cf7dec.png"></image>
                 <view  class="txt">{{detail.transmit}}</view>
             </button>
-            <!-- </view> -->
         </view>
         <view class="detail-btn-right">
             <view class="detail-inner">
@@ -59,19 +57,20 @@
         </view>
     </view>
     <view class="leave-message">
-        <view class="message-wrap">
-            <view wx:for="{{message}}">
-                <text class="message-title">{{item.title}}</text>: <text class="message-info">{{item.msg}}</text>
+        <view class="message-wrap" wx:if="{{message.length !== 0}}">
+            <view wx:for="{{message}}" data-info="{{item}}" bindtap="remarkOthers">
+                <text 
+                class="message-title">{{item.nickName}}</text> : <text class="message-info">{{item.content}}</text>
             </view>
-            <view class="message-biao">查看全部300条评论 ></view>
+            <view class="message-biao" data-id="{{detail._id}}" bindtap="toAllremarkPage">查看全部{{total}}条评论 ></view>
         </view>
-        <view class="headWrap1">
-            <view class="autoFocio">
-                <input class="autoInput" placeholder="添加评论..." />
+        <!-- <view class="headWrap1">
+            <view class="autoFocio" bindtap="remarkAdmin">
+                <input focus="{{wakeUp}}" bindinput="bindinput"  value="{{remarkValue}}" bindconfirm="remarkSubmit" class="autoInput" placeholder="{{placeTxt}}" />
                 <view class="small"></view>
             </view>
-        </view>
-        <view class="message-time">今天14:49</view>
+        </view> -->
+        <view class="message-time">今天 {{date}}</view>
     </view>
     <view class="tuijian">相关推荐</view>
     <goodsList list="{{goodsRecommendList}}"></goodsList>

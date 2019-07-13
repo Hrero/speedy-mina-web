@@ -2,6 +2,7 @@
     <pointOut wx:if="{{isPointOut}}" text="{{pointOutText}}" bind:onCloseBtn="onCloseBtn"></pointOut>
     <view class="wrapHead">
         <view class="user-home-head">
+            <view class="user-home-head-top">
                 <view class="left">
                     <view class="imgDiv">
                         <image wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -27,7 +28,7 @@
                         </view>
                         <view class="item">
                             <view class="gz">
-                            他的商品
+                            {{userInfo.sex === 0? '她': '他'}}的商品
                             </view>
                             <view>
                             {{goodList.length}}
@@ -39,6 +40,11 @@
                         <view class="zzz" wx:if="{{userInfo.avatarUrl}}" data-isfans="{{userInfo.isFans}}" data-id="{{userInfo._id}}" bindtap="getFans">{{userInfo.isFans? '已关注': '关注'}}</view>
                     </view>
                 </view>
+            </view>
+            <view class="user-home-head-bottom">
+                <image wx:if="{{userInfo.sex === 1}}" src="https://static2.zugeliang01.com/lease/img/36f43aa0-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+                <image wx:if="{{userInfo.sex === 0}}" src="https://static2.zugeliang01.com/lease/img/3a0ee820-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+            </view>
         </view>
         <view class="home-bottom-tab">
             <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">商品</view>

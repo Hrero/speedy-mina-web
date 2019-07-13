@@ -14,7 +14,6 @@
             搜索
         </view>
     </view>
-    <!-- <view class="lai"></view> -->
     <view class="searchBtn-down" wx:if="{{!isList}}">
         <view class="search-head-hoot" wx:if="{{userHistorySearch.length > 0}}">
             搜索历史
@@ -39,6 +38,10 @@
             </view>
         </view>
     </view>
+    <view class="home-bottom-tab-clone">
+        <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">商品</view>
+        <view class="cbg {{tabIndex === 2?'fans-tab':''}}" data-index="{{2}}" bindtap="choseFansType">用户</view>
+    </view>
     <view wx:if="{{isList}}">
         <view class="user-home-bottom">
             <view class="home-bottom-tab">
@@ -50,8 +53,8 @@
                     <view class="txtCenter" wx:if="{{goodList.length == 0}}">
                         <image class="zanwu" src="https://static2.zugeliang01.com/lease/img/7d8ac4c0-a23a-11e9-a88d-77a7a2cf7dec.png"></image>
                     </view>
-                    <scroll-view scroll-y style="height: 1005rpx;"  lower-threshold="50" bindscrolltolower="downList">
-                        <waterFallView id="waterFallView"></waterFallView>
+                    <scroll-view scroll-y style="height: {{innerHeight}}"  lower-threshold="50" bindscrolltolower="downList">
+                        <waterFallView loading="{{loading}}" id="waterFallView"></waterFallView>
                     </scroll-view>
                 </view>
                 <view hidden="{{tabIndex !== 2}}" >

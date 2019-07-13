@@ -1,0 +1,60 @@
+page{
+    background: #ffffff;
+}
+.c-view{
+    /* height: 180rpx; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1rpx solid #f6f7f9;
+    padding: 30rpx 30rpx;
+}
+.zan{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.c-left{
+    display: flex;
+    width:100%;
+}
+.name-User{
+    color: #333333;
+    display: flex;
+    align-items: center;
+}
+.c-name{
+    font-size: 28rpx;
+    margin-left: 30rpx;
+    font-weight: bold;
+    width:50%;
+}
+.toMeis{
+    width: 30%;
+    font-size: 22rpx;
+    padding-top: 20rpx;
+    text-align: right;
+}
+.ccc{
+    font-size: 32rpx;
+    margin-top:5rpx;
+}
+.c-guanzhu{
+    width: 100rpx;
+    height: 50rpx;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border: 1rpx solid #cccccc;
+    border-radius: 10rpx;
+}
+.userImage{
+    margin: 0 10rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+.time{
+    color: #cccccc;
+    font-size: 22rpx;
+    margin-top:8rpx;
+}

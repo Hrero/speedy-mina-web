@@ -1,5 +1,5 @@
 const app = getApp();
-
+import utils from '../../../utils/utils';
 Page({
     data:{
         imgUrls: [
@@ -8,26 +8,18 @@ Page({
             'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640',
             'https://static2.zugeliang01.com/lease/img/30331b20-9252-11e9-a3ac-0f06167c54ec.png'
         ],
-        message: [
-            {
-                title: '小哥哥',
-                msg: '是的啊啊即使我是的啊即使我'
-            },
-            {
-                title: '小哥哥',
-                msg: '是的啊啊即使我是的啊即使我'
-            },
-            {
-                title: '小哥哥',
-                msg: '是的啊啊即使我是的啊即使'
-            },
-            {
-                title: '小哥哥',
-                msg: '是的啊啊即使我是的啊'
-            }
-        ],
+        message: [],
+        wakeUp: false,
+        date: utils.getDateHm(),
         width: app.windowWidth,
         goodsRecommendList: [],
+        remarks: [],
+        total: 0,
+        remarkValue: '',
+        toUid: '',
+        targetId: '',
+        targetFirstId: '',
+        placeTxt: '添加评论...',
         commodityId: '',
         detail: {},
         imgUrl: [100, 200, 400, 400],
@@ -45,7 +37,9 @@ Page({
             const data = res.data;
             if (res.code) {
                 this.setData({
-                    detail: data
+                    detail: data.res,
+                    message: data.arr,
+                    total: data.total
                 }, () => {
                     app.httpsRequest('/api/recommendToCommodity', {
                         type: this.data.detail.type
@@ -60,6 +54,79 @@ Page({
                 })
             }
         })
+    },
+    remarkOthers(e) {
+        let item = e.currentTarget.dataset.info;
+        this.setData({
+            wakeUp: true,
+            placeTxt: '回复@' + item.nickName,
+            toUid: item.fromUid,
+            targetId: item._id,
+            targetFirstId: item._id
+        })
+    },
+    remarkAdmin(e) {
+        this.setData({
+            wakeUp: true,
+            placeTxt: '回复@' + this.data.detail.dep.nickName,
+            toUid: this.data.detail.dep._id,
+            targetId: this.data.commodityId,
+            targetFirstId: this.data.commodityId
+        })
+    },
+    bindinput(e) {
+        this.setData({
+            remarkValue: e.detail.value
+        })
+    },
+    toAllremarkPage(e) {
+        wx.navigateTo({
+            url: '../remark/remark?commodityId=' + e.currentTarget.dataset.id
+        });
+    },
+    remarkSubmit(e) {
+        let data = {};
+        data.commodityId = this.data.commodityId;
+        data.depComm = this.data.commodityId;
+        data.toUid = this.data.toUid;
+        data.targetId = this.data.targetId;
+        data.content = e.detail.value;
+        data.targetFirstId = this.data.targetFirstId;
+        app.httpsRequest('/api/user/addRemarks', data).then(res => {
+            if (res.code) {
+                this.setData({
+                    placeTxt: '添加评论...',
+                    remarkValue: ''
+                })
+                app.httpsRequest('/api/getCommodityDetail', {
+                    commodityId: this.data.commodityId
+                }, true).then(res => {
+                    const data = res.data;
+                    if (res.code) {
+                        this.setData({
+                            detail: data.res,
+                            message: data.lookUp,
+                            total: data.total
+                        })
+                    }
+                })
+                wx.showToast({
+                    title: '评论成功',
+                    icon: 'none',
+                    duration: 1000
+                })
+            } else {
+                wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 1000
+                })
+            }
+
+        })
+    },
+    remarkReset(e) {
+        console.log(e, '!!!!!')
     },
     toDetailPage() {
         wx.navigateTo({

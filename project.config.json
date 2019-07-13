@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 33,
+			"current": 35,
 			"list": [
 				{
 					"id": -1,
@@ -266,6 +266,20 @@
 					"name": "用户个人",
 					"pathName": "pages/user/userInfo/userInfo",
 					"query": "userId=5d145ee6c50c3201d17dc28a",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论记录",
+					"pathName": "pages/home/remark/remark",
+					"query": "commodityId=5d21bcdaca0153f63a89a122",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评论记录",
+					"pathName": "pages/user/message/message",
+					"query": "",
 					"scene": null
 				}
 			]

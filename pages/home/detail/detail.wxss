@@ -124,7 +124,7 @@
 }
 .leave-message{
     background: #ffffff;
-    padding: 30rpx;
+    padding: 20rpx 30rpx;
 }
 .message-wrap{
     border-radius: 10rpx;
@@ -181,6 +181,7 @@
 .message-time{
     color: #a0a0a0;
     font-size: 22rpx;
+    margin-top: 20rpx;
 }
 .zan1{
     width: 30rpx;

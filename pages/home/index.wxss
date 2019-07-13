@@ -49,6 +49,7 @@
     /* position: fixed;
     top:98rpx;
     left:0; */
+    height: 60rpx;
     z-index: 1001;
 }
 .scrollItem{

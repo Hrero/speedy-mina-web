@@ -2,8 +2,9 @@
   "pages": [
     "pages/home/index",
     "pages/user/index",
-    "pages/letter/index",
+    "pages/home/remark/remark",
     "pages/user/editPersonInfo/editPersonInfo",
+    "pages/user/message/message",
     "pages/user/toEditUserInfo/toEditUserInfo",
     "pages/user/userInfo/userInfo",
     "pages/user/fansPage/fansPage",
@@ -27,12 +28,6 @@
         "iconPath": "aimg/icon/ic_zulinhuise.png",
         "selectedIconPath": "aimg/icon/ic_zulintianchongse.png",
         "text": "杂货铺"
-      },
-      {
-        "pagePath": "pages/letter/index",
-        "iconPath": "aimg/icon/ic_zulinhuise.png",
-        "selectedIconPath": "aimg/icon/ic_zulintianchongse.png",
-        "text": "聊一聊"
       },
       {
         "pagePath": "pages/user/index",

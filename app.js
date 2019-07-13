@@ -11,6 +11,7 @@ App({
     isAgree: false,
     isEditMail: false,
     toReLoad: false,
+    school: '',
     user: null,
     sessionKey: null,
     name: null,
@@ -27,7 +28,7 @@ App({
     // httpUrl: '192.168.0.113:8000', //请求地址
     // httpUrl: 'http://127.0.0.1:8000', //请求地址
     httpUrl: 'http://192.168.1.70:8000', //请求地址
-    // httpUrl: 'http://192.168.0.106:8000', //请求地址
+    // httpUrl: 'http://192.168.0.120:8000', //请求地址
     sourceName: 'weChat_app_speedy',
     userToken: null,
     userInfo: null,
@@ -161,6 +162,12 @@ App({
             })
         })
     },
+    getSchoolName(school) {
+        return new Promise((r, j) => {
+            this.school = school;
+            r(true)
+        })
+    },
     httpsRequest(URL, PARAMS, SHOWLOAD) {
         const self = this;
         return new Promise((resolve, reject) => {
@@ -176,6 +183,7 @@ App({
                     'Content-Type': 'application/json',
                     'X-Request-Source': self.sourceName,
                     'authorization': self.userToken || '',
+                    'cookie': 'school=' + self.school,
                     'X-Request-Version':'v2'
                 },
                 success: (res) => {

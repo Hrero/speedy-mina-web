@@ -1,84 +1,89 @@
-<view class='fall-container homeList'>
-    <view class='fall-left'>
-        <block wx:for="{{leftList}}" wx:key="{{item._id}}" >
-            <view class="item-li" bindtap="toDetailPage" data-id="{{item._id}}">
-                <view class="list-img img-box">
-                    <image  class="listImg skeleton-rect"
-                            style='width:{{item.itemWidth}}px;height:{{item.itemHeight}}px;' 
-                            src='{{item.imageUrl[0].path}}' 
-                            lazy-load
-                            mode="widthFix"
-                            wx:if="{{item.imageUrl[0].path}}"></image>
-                </view>
-                <view class="des-item skeleton-rect">
-                    {{item.productDes}}
-                </view>
-                <view class="head" >
-                    <view class="headImg">
-                        <view class="image skeleton-radius">
-                            <image 
-                                mode="scaleToFill skeleton-radius"
+<view>
+    <view class='fall-container homeList'>
+        <view class='fall-left'>
+            <block wx:for="{{leftList}}" wx:key="{{item._id}}" >
+                <view class="item-li" bindtap="toDetailPage" data-id="{{item._id}}">
+                    <view class="list-img img-box">
+                        <image  class="listImg skeleton-rect"
+                                style='width:{{item.itemWidth}}px;height:{{item.itemHeight}}px;' 
+                                src='{{item.imageUrl[0].path}}' 
                                 lazy-load
-                                src="{{item.dep.avatarUrl}}"></image>
+                                mode="widthFix"
+                                wx:if="{{item.imageUrl[0].path}}"></image>
+                    </view>
+                    <view class="des-item skeleton-rect">
+                        {{item.productDes}}
+                    </view>
+                    <view class="head" >
+                        <view class="headImg">
+                            <view class="image skeleton-radius">
+                                <image 
+                                    mode="scaleToFill skeleton-radius"
+                                    lazy-load
+                                    src="{{item.dep.avatarUrl}}"></image>
+                            </view>
+                            <view class="name skeleton-rect">{{item.dep.nickName}}</view>
                         </view>
-                        <view class="name skeleton-rect">{{item.dep.nickName}}</view>
-                    </view>
-                    <view class="zan-wrap skeleton-rect" data-id="{{item._id}}" catchtap="toLikeclick">
-                        <image class="zan" 
-                                wx:if="{{item.isLike}}"
-                                mode="scaleToFill"
-                                lazy-load
-                                src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
-                        <image class="zan"
-                                wx:if="{{!item.isLike}}"
-                                mode="scaleToFill"
-                                lazy-load
-                                src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
-                        <view>{{item.like}}</view>       
+                        <view class="zan-wrap skeleton-rect" data-id="{{item._id}}" catchtap="toLikeclick">
+                            <image class="zan" 
+                                    wx:if="{{item.isLike}}"
+                                    mode="scaleToFill"
+                                    lazy-load
+                                    src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                            <image class="zan"
+                                    wx:if="{{!item.isLike}}"
+                                    mode="scaleToFill"
+                                    lazy-load
+                                    src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                            <view>{{item.like}}</view>       
+                        </view>
                     </view>
                 </view>
-            </view>
-        </block>
+            </block>
+        </view>
+        <view class='fall-right'>
+            <block wx:for="{{rightList}}" wx:key="{{item._id}}" >
+                <view class="item-li" bindtap="toDetailPage" data-id="{{item._id}}">
+                    <view class="list-img img-box">
+                        <image  class="listImg skeleton-rect"
+                                style='width:{{item.itemWidth}}px;height:{{item.itemHeight}}px;' 
+                                src='{{item.imageUrl[0].path}}' 
+                                lazy-load
+                                mode="widthFix"
+                                wx:if="{{item.imageUrl[0].path}}"></image>
+                    </view>
+                    <view class="des-item skeleton-rect">
+                        {{item.productDes}}
+                    </view>
+                    <view class="head " >
+                        <view class="headImg">
+                            <view class="image skeleton-radius">
+                                <image 
+                                    mode="scaleToFill skeleton-radius"
+                                    lazy-load
+                                    src="{{item.dep.avatarUrl}}"></image>
+                            </view>
+                            <view class="name skeleton-rect">{{item.dep.nickName}}</view>
+                        </view>
+                        <view class="zan-wrap skeleton-radius"  data-id="{{item._id}}" catchtap="toLikeclick">
+                            <image class="zan" 
+                                    wx:if="{{item.isLike}}"
+                                    mode="scaleToFill"
+                                    lazy-load
+                                    src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                            <image class="zan" 
+                                    wx:if="{{!item.isLike}}"
+                                    mode="scaleToFill"
+                                    lazy-load
+                                    src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
+                            <view>{{item.like}}</view>       
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
     </view>
-    <view class='fall-right'>
-        <block wx:for="{{rightList}}" wx:key="{{item._id}}" >
-            <view class="item-li" bindtap="toDetailPage" data-id="{{item._id}}">
-                <view class="list-img img-box">
-                    <image  class="listImg skeleton-rect"
-                            style='width:{{item.itemWidth}}px;height:{{item.itemHeight}}px;' 
-                            src='{{item.imageUrl[0].path}}' 
-                            lazy-load
-                            mode="widthFix"
-                            wx:if="{{item.imageUrl[0].path}}"></image>
-                </view>
-                <view class="des-item skeleton-rect">
-                    {{item.productDes}}
-                </view>
-                <view class="head " >
-                    <view class="headImg">
-                        <view class="image skeleton-radius">
-                            <image 
-                                mode="scaleToFill skeleton-radius"
-                                lazy-load
-                                src="{{item.dep.avatarUrl}}"></image>
-                        </view>
-                        <view class="name skeleton-rect">{{item.dep.nickName}}</view>
-                    </view>
-                    <view class="zan-wrap skeleton-radius"  data-id="{{item._id}}" catchtap="toLikeclick">
-                        <image class="zan" 
-                                wx:if="{{item.isLike}}"
-                                mode="scaleToFill"
-                                lazy-load
-                                src="https://static2.zugeliang01.com/lease/img/985e7a30-a168-11e9-a88d-77a7a2cf7dec.png"></image>
-                        <image class="zan" 
-                                wx:if="{{!item.isLike}}"
-                                mode="scaleToFill"
-                                lazy-load
-                                src="https://static2.zugeliang01.com/lease/img/9b222e10-a168-11e9-a88d-77a7a2cf7dec.png"></image>
-                        <view>{{item.like}}</view>       
-                    </view>
-                </view>
-            </view>
-        </block>
+    <view class="load-wrap">
+        <view class="spin" wx:if="{{loading}}"></view>
     </view>
 </view>

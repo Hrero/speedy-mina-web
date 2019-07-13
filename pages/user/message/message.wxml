@@ -1,0 +1,25 @@
+<view class="user-home">
+    <view>
+        <view class="c-view" wx:for="{{messageList}}">
+            <view class="c-left" bindtap="toMessageInfo" data-item="{{item}}" data-commodityid="{{item.commodityId}}">
+                <image class="zan"
+                        mode="scaleToFill"
+                        catchtap="toMessageInfo" 
+                        data-id="{{item._id}}"
+                        src="{{item.fromUid.avatarUrl}}"></image>
+                <view class="c-name">
+                    <view class="name-User">
+                        <text>{{item.fromUid.nickName}}</text>
+                        <image class="userImage" wx:if="{{item.fromUid.sex === 1}}" src="https://static2.zugeliang01.com/lease/img/36f43aa0-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+                        <image class="userImage" wx:if="{{item.fromUid.sex === 0}}" src="https://static2.zugeliang01.com/lease/img/3a0ee820-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+                    </view>
+                    <view class="ccc">{{item.content}}</view>
+                    <view class="time">{{item.creatTime}}</view>
+                </view>
+                <view class="toMeis">
+                    {{item.targetId.content}}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

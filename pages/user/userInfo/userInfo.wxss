@@ -7,6 +7,7 @@
     background: #ffffff;
     font-size: 24rpx;
     color: #cccccc;
+    flex-direction: column;
 }
 .imgDiv{
     width: 150rpx;
@@ -30,6 +31,9 @@
     flex-direction: column;
     padding-top:10rpx;
     flex: 1;
+}
+.user-home-head-top{
+    display: flex;
 }
 .right .right-top{
     display: flex;
@@ -230,4 +234,16 @@
 .imagefa{
     width: 50rpx;
     height: 50rpx;
+}
+.user-home-head-bottom{
+    padding-left: 48rpx;
+    margin-top: 20rpx;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+.user-home-head-bottom image{
+    margin: 0 10rpx;
+    width: 30rpx;
+    height: 30rpx;
 }

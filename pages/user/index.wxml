@@ -3,6 +3,7 @@
     <pointOut wx:if="{{isPointOut}}" text="{{pointOutText}}" bind:onCloseBtn="onCloseBtn"></pointOut>
     <view class="wrapHead">
         <view class="user-home-head">
+            <view class="user-home-head-top">
                 <view class="left">
                     <view class="imgDiv">
                         <image wx:if="{{userInfo}}" src="{{userInfo.avatarUrl}}" mode="cover"></image>
@@ -26,23 +27,33 @@
                             {{userInfo.fansNum}}
                             </view>
                         </view>
-                        <view class="item">
+                        <view class="item" catchtap="toMessagePage" >
                             <view class="gz">
-                            我的橱窗
+                            消息
                             </view>
                             <view>
-                            {{goodList.length}}
+                            {{userInfo.message}}
                             </view>
                         </view>
                     </view>
                     <view class="right-down">
                         <button class="zzz" wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">编辑资料</button>
                         <view class="zzz" wx:if="{{userInfo.avatarUrl}}" bindtap="toEditPersonInfo">编辑资料</view>
-                        <view class="imgFabu" bindtap="toAddUserCompage">
+                        <view class="zzzz" wx:if="{{userInfo.avatarUrl}}" bindtap="toAddUserCompage">发布物品</view>
+                        <!-- <view class="imgFabu" bindtap="toAddUserCompage">
                             <image src="https://static2.zugeliang01.com/lease/img/0d49c570-a22c-11e9-a88d-77a7a2cf7dec.png"></image>
-                        </view>
+                        </view> -->
                     </view>
                 </view>
+            </view>
+            <view class="user-home-head-bottom">
+                <text>{{userInfo.nickName || ''}}</text>
+                <image wx:if="{{userInfo.sex === 1}}" src="https://static2.zugeliang01.com/lease/img/36f43aa0-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+                <image wx:if="{{userInfo.sex === 0}}" src="https://static2.zugeliang01.com/lease/img/3a0ee820-a2d5-11e9-a88d-77a7a2cf7dec.png"></image>
+                |
+                <image src="https://static2.zugeliang01.com/lease/img/e73443e0-a511-11e9-a88d-77a7a2cf7dec.png"></image>
+                <text>{{userInfo.signature}}</text>
+            </view>
         </view>
         <view class="home-bottom-tab">
             <view class="{{tabIndex === 1?'fans-tab':''}}" data-index="{{1}}" bindtap="choseFansType">商品</view>
@@ -56,7 +67,7 @@
                     <image class="zanwu" src="https://static2.zugeliang01.com/lease/img/7d8ac4c0-a23a-11e9-a88d-77a7a2cf7dec.png"></image>
                 </view>
                  <scroll-view scroll-y wx:if="{{goodList.length !== 0}}" style="height: 800rpx;" bindscroll="bindscrollInfo" lower-threshold="150" >
-                    <waterFallView id="userWaterView"></waterFallView>
+                    <waterFallView loading="{{false}}" id="userWaterView"></waterFallView>
                 </scroll-view>
             </view>
             <view wx:if="{{tabIndex === 2}}">
@@ -64,7 +75,7 @@
                     <image class="zanwu" src="https://static2.zugeliang01.com/lease/img/7d8ac4c0-a23a-11e9-a88d-77a7a2cf7dec.png"></image>
                 </view>
                 <scroll-view scroll-y wx:if="{{collectionList.length !== 0}}" style="height: 800rpx;" bindscroll="bindscrollInfo" lower-threshold="150" >
-                    <waterFallView id="collectWaterView"></waterFallView>
+                    <waterFallView loading="{{false}}" id="collectWaterView"></waterFallView>
                 </scroll-view>
             </view>
         </view>

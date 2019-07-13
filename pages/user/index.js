@@ -39,11 +39,15 @@ Page({
     getCollectList() {
         app.httpsRequest('/api/user/getCollectionList', {}).then(res => {
             const data = utils.isObjNull(res.data)?[]: res.data;
+            let arr = [];
+            data.forEach(item => {
+                arr.push(item.dep)
+            })
             this.setData({
-                collectionList: data
+                collectionList: arr
             });
             if (data.length > 0) {
-                this.fillData(true, data, 'collectWaterView')
+                this.fillData(true, arr, 'collectWaterView')
             }
         })
     },
@@ -99,6 +103,11 @@ Page({
     toDetailPage(e) {
         wx.navigateTo({
             url: '../home/detail/detail?commodityId=' + e.currentTarget.dataset.id
+        });
+    },
+    toMessagePage() {
+        wx.navigateTo({
+            url: './message/message'
         });
     },
     toAddUserCompage() {

@@ -40,7 +40,6 @@ Page({
         });
     },
     setDateFnFather({ key, value }) {
-        console.log(key, value, 111)
         if (!key || !value) {
             return
         }
@@ -89,6 +88,7 @@ Page({
         app.httpsRequest('/api/user/userUpdate', {
             school: this.data.multiArray[1][this.data.multiIndex[1]].name
         }).then( res => {
+            app.getSchoolName(encodeURI(this.data.multiArray[1][this.data.multiIndex[1]].name))
             this.getUserDetail()
         });
     },

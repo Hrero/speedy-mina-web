@@ -6,6 +6,7 @@ Page({
         searchText: '',
         isList: false,
         loading: false,
+        innerHeight: '',
         tabIndex: 1,
         goodList: [],
         pageSize: 5,
@@ -25,6 +26,32 @@ Page({
                 })
             }
         });
+        this.getHeight().then(res => {
+            this.setData({
+                innerHeight: res + 'px'
+            })
+        })
+    },
+    getHeight() {
+        let headScroll = 0;
+        return new Promise((r, j) => {
+            wx.getSystemInfo({
+                success: (data) => {
+                    var scrollwrap = wx.createSelectorQuery();
+                    scrollwrap.select('.home-bottom-tab-clone').boundingClientRect((rect) => {
+                        console.log(rect)
+                        headScroll = rect.height;
+                        var headWrap = wx.createSelectorQuery();
+                        headWrap.select('.headWrap').boundingClientRect((res) => {
+                            headScroll = headScroll + res.height
+                            headScroll = data.windowHeight - headScroll
+                            console.log(data.windowHeight, rect, res)
+                            r(headScroll)
+                        }).exec();
+                    }).exec();
+                }
+            });
+        })
     },
     downList() {
         if (this.data.loading) {

@@ -4,14 +4,25 @@ var rightList = new Array();//右侧集合
 var leftHight = 0, rightHight = 0, itemWidth = 0, maxHeight = 0;
 
 Component({
-  properties: {},
+  properties: {
+    loading: { // 属性名
+        type: Boolean,
+        value: true,
+        observer: function (newVal, oldVal, changedPath) {
+            if (this.data.listData.length < 5) {
+                this.setData({
+                    loading: false
+                })
+            }
+        }
+    }
+  },
   data: {
     listData: [],
     leftList: [],//左侧集合
     rightList: [],//右侧集合
   },
-
-  attached: function () {
+  attached() {
     wx.getSystemInfo({
       success: (res) => {
         let percentage = 750 / res.windowWidth;
@@ -23,38 +34,38 @@ Component({
   },
   methods: {
     fillData: function (isPull, listData) {
-      if (isPull) { //是否下拉刷新，是的话清除之前的数据
-        leftList.length = 0;
-        rightList.length = 0;
-        leftHight = 0;
-        rightHight = 0;
-      }
-      for (let i = 0, len = listData.length; i < len; i++) {
-        let tmp = listData[i];
-        tmp.width = parseInt(tmp.firstImgWidth);
-        tmp.height = parseInt(tmp.firstImgHeight);
-        tmp.itemWidth = itemWidth
-        let per = tmp.width / tmp.itemWidth;
-        tmp.itemHeight = tmp.height / per;
-        if (tmp.itemHeight > maxHeight) {
-          tmp.itemHeight = maxHeight;
+        if (isPull) { //是否下拉刷新，是的话清除之前的数据
+            leftList.length = 0;
+            rightList.length = 0;
+            leftHight = 0;
+            rightHight = 0;
         }
-        if (leftHight == rightHight) {
-          leftList.push(tmp);
-          leftHight = leftHight + tmp.itemHeight;
-        } else if (leftHight < rightHight) {
-          leftList.push(tmp);
-          leftHight = leftHight + tmp.itemHeight;
-        } else {
-          rightList.push(tmp);
-          rightHight = rightHight + tmp.itemHeight;
+        for (let i = 0, len = listData.length; i < len; i++) {
+            let tmp = listData[i];
+            tmp.width = parseInt(tmp.firstImgWidth);
+            tmp.height = parseInt(tmp.firstImgHeight);
+            tmp.itemWidth = itemWidth
+            let per = tmp.width / tmp.itemWidth;
+            tmp.itemHeight = tmp.height / per;
+            if (tmp.itemHeight > maxHeight) {
+            tmp.itemHeight = maxHeight;
+            }
+            if (leftHight == rightHight) {
+            leftList.push(tmp);
+            leftHight = leftHight + tmp.itemHeight;
+            } else if (leftHight < rightHight) {
+            leftList.push(tmp);
+            leftHight = leftHight + tmp.itemHeight;
+            } else {
+            rightList.push(tmp);
+            rightHight = rightHight + tmp.itemHeight;
+            }
         }
-      }
-      this.setData({
-        leftList: leftList,
-        rightList: rightList,
-        listData: listData
-      });
+        this.setData({
+            leftList: leftList,
+            rightList: rightList,
+            listData: listData
+        });
     },
     toLikeclick(e) {
         let item = {};

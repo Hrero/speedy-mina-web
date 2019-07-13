@@ -1,0 +1,55 @@
+<view class="remark-wrap">
+    <view class="comm-top">
+        <image class="head-left" mode="widthFix" src="{{detail.imageUrl[0].path}}"></image>
+        <view class="comm-right">
+            <view class="title">{{detail.productDes}}</view>
+            <view class="name">{{detail.dep.nickName}}<image class="sex" wx:if="{{detail.dep.sex === 1}}" src="https://static2.zugeliang01.com/lease/img/36f43aa0-a2d5-11e9-a88d-77a7a2cf7dec.png"></image><image class="sex" wx:if="{{detail.dep.sex === 0}}" src="https://static2.zugeliang01.com/lease/img/3a0ee820-a2d5-11e9-a88d-77a7a2cf7dec.png"></image></view>
+            <view class="school">{{detail.dep.school || ''}}</view>
+        </view>
+    </view>
+    <view wx:if="{{itemFather}}">
+        <view class="tuijian">当前消息</view>
+        <view class="leave-message" >
+            <view class="leave-left">
+                <image class="headUIL" data-id="{{itemFather.depUser._id}}" catchtap="toUserInfo" src="{{itemFather.depUser.avatarUrl}}"></image>
+            </view>
+            <view class="leave-right" data-info="{{itemFather}}"  catchtap="remarkOthers">
+                <view class="name">{{itemFather.depUser.nickName}}</view>
+                <view class="time">2-26 12:45</view>
+                <view class="name">
+                    <view data-info="{{itemFather}}" data-firstid="{{itemFather._id}}" catchtap="remarkChildsOthers">
+                        <view class="lineHeight" wx:if="{{itemFather.targetId == itemFather.targetFirstId}}"><view class="message-title" data-id="{{itemFather.fromUid._id}}" catchtap="toUserInfo" >{{itemFather.fromUid.nickName}}</view> : <view class="message-info">{{itemFather.content}}</view></view>
+                        <view class="lineHeight" wx:if="{{itemFather.targetId !== itemFather.targetFirstId}}"><view class="message-info">{{itemFather.content}}</view>//<view class="message-title" data-id="{{itemFather.toUid._id}}" catchtap="toUserInfo" >@{{itemFather.toUid.nickName}}</view><view class="message-info">: {{itemFather.targetId.content}}</view></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="marginTop">
+        <view class="tuijian">全部评论</view>
+        <view class="leave-message" wx:for="{{remarksList}}" wx:for-item="cell" >
+            <view class="leave-left">
+                <image class="headUIL" data-id="{{cell.depUser._id}}" catchtap="toUserInfo" src="{{cell.depUser.avatarUrl}}"></image>
+            </view>
+            <view class="leave-right" data-info="{{cell}}"  catchtap="remarkOthers">
+                <view class="name">{{cell.depUser.nickName}}</view>
+                <view class="time">2-26 12:45</view>
+                <view class="name">{{cell.content}}</view>
+                <view wx:if="{{cell.child.length !== 0}}">
+                    <view class="message-wrap" >
+                        <view wx:for="{{cell.child}}" data-info="{{item}}" data-firstid="{{cell._id}}" catchtap="remarkChildsOthers">
+                            <view class="lineHeight" wx:if="{{item.targetId == item.targetFirstId}}"><view class="message-title" data-id="{{item.fromUid._id}}" catchtap="toUserInfo" >{{item.fromUid.nickName}}</view> : <view class="message-info">{{item.content}}</view></view>
+                            <view class="lineHeight" wx:if="{{item.targetId !== item.targetFirstId}}"><view class="message-title" data-id="{{item.fromUid._id}}" catchtap="toUserInfo">{{item.fromUid.nickName}}</view>回复<view class="message-title" data-id="{{item.toUid._id}}" catchtap="toUserInfo">@{{item.toUid.nickName}}</view> : <view class="message-info">{{item.content}}</view></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="headWrap">
+        <view class="autoFocio skeleton-rect" catchtap="remarkAdmin">
+            <input class="autoInput" bindinput="bindinput" focus="{{wakeUp}}" value="{{remarkValue}}" bindconfirm="remarkSubmit" class="autoInput" placeholder="{{placeTxt}}" />
+            <view class="small"></view>
+        </view>
+    </view>
+</view>

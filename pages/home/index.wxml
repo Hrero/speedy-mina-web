@@ -1,23 +1,20 @@
 <skeleton loading="false1"  wx:if="{{showSkeleton}}" ></skeleton>
 <view class="zg-pageIndex skeleton">
     <pointOut wx:if="{{isPointOut}}" text="{{pointOutText}}" bind:onCloseBtn="onCloseBtn"></pointOut>
-    <view class="headWrap">
+    <view class="headWrap" >
         <view class="autoFocio skeleton-rect" bindtap="toSearchPage">
             <input disabled="true" class="autoInput" value="大家都在搜“{{searchText}}”" placeholder="" />
             <view class="small"></view>
         </view>
     </view>
     <!-- <view class="lai"></view> -->
-    <scroll-view scroll-x="true" class="scrollwrap" style=" white-space: nowrap; display: flex" >
+    <scroll-view  scroll-x="true" class="scrollwrap" style=" white-space: nowrap; display: flex" >
         <view class="scrollItem  {{activeC === index? 'activeC': ''}}" data-index="{{index}}" bindtap="tabsGetList" wx:for="{{tabs}}">{{item.text}}</view>
     </scroll-view>
     <view class="header" wx:if="{{isShowTopLoad}}">
         <view class="spin"></view>
     </view>
-    <scroll-view scroll-y style="height: 950rpx;" bindscroll="bindscrollInfo" lower-threshold="50" bindscrolltolower="downList">
-        <waterFallView id="waterFallView"></waterFallView>
+    <scroll-view scroll-y style="height: {{innerHeight}}" bindscroll="bindscrollInfo" lower-threshold="65" bindscrolltolower="downList">
+        <waterFallView loading="{{loading}}" id="waterFallView"></waterFallView>
     </scroll-view>
-    <view class="load-wrap">
-        <view class="spin" wx:if="{{loading}}"></view>
-    </view>
 </view>

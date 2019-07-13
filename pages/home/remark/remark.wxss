@@ -1,0 +1,144 @@
+page{
+    background: #f6f7f9;
+}
+.comm-top{
+    background: #ffffff;
+    display: flex;
+    padding: 10rpx 30rpx;
+    font-size: 22rpx;
+    align-items: center;
+    color: #333333;
+}
+.title{
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+.name{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+.headUIL{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.sex{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 5rpx;
+}
+.head-left{
+    width: 150rpx;
+    height: 150rpx;
+}
+.comm-right{
+    display: flex;
+    height: 150rpx;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding: 20rpx;
+}
+.leave-message{
+    background: #ffffff;
+    padding: 20rpx 30rpx;
+    display: flex;
+}
+.marginTop{
+    margin-top: 20rpx;
+    margin-bottom: 100rpx;
+}
+.time{
+    font-size: 22rpx;
+    color: #666666;
+    margin-bottom: 10rpx;
+}
+.leave-right{
+    margin-left: 30rpx;
+    flex: 1;
+}
+.leave-right .name {
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+.message-wrap{
+    border-radius: 10rpx;
+    background: #f5f5f5;
+    padding: 30rpx;
+    font-size: 28rpx;
+}
+.message-title{
+    font-weight: bold;
+    color: #4a83bb;
+}
+.message-info{
+    font-size: 26rpx;
+    color: #212121;
+}
+.message-biao{
+    margin: 15rpx 0;
+    color: #6b8ad9;
+}
+.lineHeight{
+    line-height: 45rpx;
+    display: flex;
+}
+.headWrap{
+    background: #ffffff;
+    width: 92%;
+    height:100rpx;
+    padding:0 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+.autoFocio{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+    height:65rpx;
+    line-height: 65rpx;
+    font-size:30rpx;
+    color: #a0a0a0;
+    margin: 0 auto;
+    background: #f5f5f5;
+    position: relative;
+}
+.autoInput{
+    padding-left: 50rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+}
+.small{
+    width: 35rpx;
+    height: 35rpx;
+    /* background: url(https://static2.zugeliang01.com/lease/img/6acced40-9c81-11e9-a88d-77a7a2cf7dec.png) no-repeat; */
+    background-size: 35rpx 35rpx;
+    position: absolute;
+    top:15rpx;
+    left:25rpx;    
+}
+.searchBtn{
+    color: #8a8a8a;
+    font-size: 28rpx;
+}
+.activeccc{
+    color: #cdcdcd;
+}
+.searchBtn-down{
+    padding: 30rpx;
+    font-size: 30rpx;
+}
+.tuijian{
+    font-size: 24rpx;
+    padding: 0 30rpx;
+    color: #636466;
+    line-height: 70rpx;
+}

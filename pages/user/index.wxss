@@ -3,10 +3,27 @@
 }
 .user-home-head{
     padding: 20rpx 30rpx 10rpx;
-    display: flex;
     background: #ffffff;
     font-size: 24rpx;
     color: #cccccc;
+    display: flex;
+    flex-direction: column;
+}
+.user-home-head-top{
+    display: flex;
+}
+.user-home-head-bottom{
+    padding-left: 18rpx;
+    margin-top: 30rpx;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    color: #777777;
+}
+.user-home-head-bottom image{
+    margin: 0 10rpx;
+    width: 30rpx;
+    height: 30rpx;
 }
 .imgDiv{
     width: 150rpx;
@@ -46,7 +63,7 @@
     padding-top: 25rpx;
 }
 .zzz{
-    width: 300rpx;
+    width: 180rpx;
     text-align: center;
     color: #000;
     height:40rpx;
@@ -54,6 +71,17 @@
     border:1rpx solid #cccccc;
     border-radius: 20rpx;
     font-size:24rpx;
+}
+.zzzz{
+    width: 180rpx;
+    text-align: center;
+    color: #000;
+    height:40rpx;
+    line-height:40rpx;
+    border:1rpx solid #cccccc;
+    border-radius: 20rpx;
+    font-size:24rpx;
+    margin-left: 20rpx;
 }
 .user-home-bottom{
     background: #f6f7f9;

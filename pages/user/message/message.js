@@ -1,26 +1,25 @@
 const app = getApp();
+import utils from '../../../utils/utils';
 Page({
     data: {
         attentionList: [],
         fanslist: [],
-        fansId: 1,
+        messageList: [],
         txt: '已关注'
     },
     onLoad(query) {
-        if (query.fansId) {
-            this.setData({
-                fansId: Number(query.fansId),
-                txt: Number(query.fansId) === 1? '已关注': '关注'
-            })
-        }
-        app.httpsRequest('/api/user/userAttentionList', {}).then( res => {
+        app.httpsRequest('/api/user/getMessageList', {}).then( res => {
             if (res.code) {
+                let data = res.data;
+                data.forEach(element => {
+                    element.creatTime = utils.getTimeDay(element.creatTime)
+                });
                 this.setData({
-                    attentionList: res.data.attentionList,
-                    fanslist: res.data.fanslist
+                    messageList: data
                 })
             }
         });
+        app.httpsRequest('/api/user/clearMessage', {})
     },
     getFans(e) {
         let isFans = ''
@@ -51,6 +50,11 @@ Page({
                 duration: 1000
             })
         })
+    },
+    toMessageInfo(e) {
+        wx.navigateTo({
+            url: '../../home/remark/remark?item=' + JSON.stringify(e.currentTarget.dataset.item) + '&commodityId=' + e.currentTarget.dataset.commodityid
+        });
     },
     toUserInfo(e) {
         wx.navigateTo({
