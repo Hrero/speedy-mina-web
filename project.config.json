@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 35,
+			"current": 36,
 			"list": [
 				{
 					"id": -1,
@@ -280,6 +280,12 @@
 					"name": "评论记录",
 					"pathName": "pages/user/message/message",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/user/formalRegular/formalRegular",
 					"scene": null
 				}
 			]

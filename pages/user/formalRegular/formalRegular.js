@@ -70,13 +70,14 @@ Page({
             let arr = [];
             return new Promise((r, j) => {
                 for (let i=0;i<imgList.length;i++) {
-                    imgProxy(imgList[i]).then(res => {
+                    imgProxy(imgList[i]).then(res => { // { width: xxx, height: xxx }
                         arr.push({ height: res.height, width: res.width, path: res.imgH})
                         if (arr.length == imgList.length) {
                             this.setData({
                                 imgInfoList: arr
+                            }, () => {
+                                r(arr)
                             })
-                            r(arr)
                         }
                     }) 
                 }
@@ -115,17 +116,20 @@ Page({
                             }
                             this.setData({
                                 imgMaxHeight: revObj
+                            }, () => {
+                                rev({ imgMaxHeight: revObj })
                             })
-                            rev({ imgMaxHeight: revObj })
                         }
                     }, 50)
                 }
             })
         }
         imgHeight(imgList).then(res => {
-            picMaxHeight(res).then(revObj => {
+            picMaxHeight(res).then(revObj => { // {imgMaxHeight: { height:200, size: 1, width: 200 }}
                 this.setData({
-                    height: this.data.width / revObj.size
+                    height: this.data.width / revObj.imgMaxHeight.size
+                }, () => {
+                    console.log(this.data.height)
                 })
             })
         })
@@ -139,7 +143,7 @@ Page({
             for (let i=0;i< res.length; i++) {
                 picList.push(res[i].cdnPath + '/' + res[i].rows)
             }
-            this.getImgList(picList)
+            this.getImgList(picList) // ['http://www.img.png']
         })
         function forProxy(img) {
             let arr = [];

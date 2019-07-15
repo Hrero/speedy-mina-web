@@ -1,7 +1,7 @@
 <!-- <wxs src="../../utils/filter.wxs" module="filter" /> -->
 <view class="user-edit">
     <view class="swiper-wrap">
-        <swiper class="swiper" style="height:{{height}};display: flex;">
+        <swiper class="swiper" style="height:{{height + 'px'}};display: flex;">
             <block wx:for="{{imgInfoList}}" style="height:{{height + 'px'}}">
                 <swiper-item class="swiper-item" style="display: flex;justify-items: center;align-items: center;">
                     <image src="{{item.path}}" class="slide-image" mode="widthFix" style="height:{{height + 'px'}}"/>
