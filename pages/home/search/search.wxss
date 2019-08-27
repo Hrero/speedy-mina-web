@@ -119,7 +119,7 @@ page{
     background-size: 35rpx 35rpx;
     position: absolute;
     top:15rpx;
-    left:25rpx;    
+    left:25rpx;
 }
 .searchBtn{
     color: #8a8a8a;

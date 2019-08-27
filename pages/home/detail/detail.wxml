@@ -64,12 +64,12 @@
             </view>
             <view class="message-biao" data-id="{{detail._id}}" bindtap="toAllremarkPage">查看全部{{total}}条评论 ></view>
         </view>
-        <!-- <view class="headWrap1">
-            <view class="autoFocio" bindtap="remarkAdmin">
-                <input focus="{{wakeUp}}" bindinput="bindinput"  value="{{remarkValue}}" bindconfirm="remarkSubmit" class="autoInput" placeholder="{{placeTxt}}" />
+        <view class="headWrap1" data-id="{{detail._id}}" catchtap="toAllremarkPage">
+            <view class="autoFocio">
+                <input disabled="{{true}}" focus="{{wakeUp}}" bindinput="bindinput"  value="{{remarkValue}}" bindconfirm="remarkSubmit" class="autoInput" placeholder="{{placeTxt}}" />
                 <view class="small"></view>
             </view>
-        </view> -->
+        </view>
         <view class="message-time">今天 {{date}}</view>
     </view>
     <view class="tuijian">相关推荐</view>

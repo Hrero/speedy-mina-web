@@ -1,10 +1,12 @@
 const app = getApp();
 import utils from '../../utils/utils';
-
+import Socket from '../../utils/socket';
+const SocketApi = new Socket();
 Page({
     data: {
         userInfo: {},
         userToken: null,
+        message: 0,
         isPointOut: true,
         pointOutText: "温馨提示：请点击编辑信息授权获取您的个人信息",
         tabIndex: 1,
@@ -24,6 +26,25 @@ Page({
         });
         this.getUserCommodityList()
         this.getCollectList()
+        SocketApi.onConnect(data => {
+            wx.onSocketMessage(res => {
+                let message = 'userInfo.message'
+                console.log(res)
+                // this.setData({
+                //     [message]: JSON.parse(res.data).data.length
+                // })
+            })
+        })
+    },
+    onShow() {
+        app.httpsRequest('/api/user/getUserDetail', {}, true).then( res => {
+            if (res.code) {
+                this.setData({
+                    userInfo: res.data,
+                    isPointOut: res.data.school? false: true
+                })
+            }
+        });
     },
     getUserCommodityList() {
         app.httpsRequest('/api/user/getUserCommodityList', {}).then(res => {

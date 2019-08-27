@@ -138,7 +138,9 @@
     width: 40rpx;
     height: 40rpx;
 }
-
+.item .red{
+    color: #d81e06;
+}
 .zg-pageIndex .homeList {
     background: #f6f7f9;
     box-sizing: border-box;

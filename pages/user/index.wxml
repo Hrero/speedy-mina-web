@@ -29,10 +29,10 @@
                         </view>
                         <view class="item" catchtap="toMessagePage" >
                             <view class="gz">
-                            消息
+                                未读消息
                             </view>
-                            <view>
-                            {{userInfo.message}}
+                            <view class="red">
+                                {{userInfo.message}}
                             </view>
                         </view>
                     </view>
